@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>mailalerts</name>
+	<displayName><![CDATA[Оповещения по почте]]></displayName>
+	<version><![CDATA[3.6.0]]></version>
+	<description><![CDATA[Отправка почтовых уведомлений покупателям и продавцам.]]></description>
+	<author><![CDATA[PrestaShop]]></author>
+	<tab><![CDATA[administration]]></tab>
+	<confirmUninstall><![CDATA[Вы точно хотите удалить все уведомления клиента?]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

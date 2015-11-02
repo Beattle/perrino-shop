@@ -1,0 +1,233 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Title</title>
+
+<!--БИБЛИОТЕКА-->
+<script src="js/jquery-2.1.3.js"></script> 
+
+<!-- Табы -->
+<script src="js/tabs/organictabs.jquery.js"></script>
+	
+<!--ЧЕКБОКСЫ-->
+<script type="text/javascript" src="js/select/custom_el.js"></script>
+<!--СКРОЛЛ-->
+<!-- <script type="text/javascript" src="js/scroll/jquery-1.11.1.min.js"></script> -->
+<script type="text/javascript" src="js/scroll/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="js/scroll/jquery.mousewheel.js"></script>
+
+<!-- Owl slider -->	
+<script src="js/jquery.ddslick.min.js"></script>
+<script src="js/owl/owl.carousel.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	$("#tabs").organicTabs();
+
+	$("#slider").owlCarousel({  
+		autoPlay: 6000,
+		singleItem : true,
+		navigation:	true
+	  });
+
+	$("#slider_news").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1200,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	});
+
+	$("#slider_vid").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1200,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	  });
+
+	$("#slider_stat").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1200,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	});
+
+	$('#wrapper').jScrollPane();
+
+});
+</script>
+<link rel="stylesheet" type="text/css" href="jquery.fancybox.css" />
+<script src="js/jquery.fancybox.pack.js"></script>
+
+<script src="js/js.js"></script>
+
+</head>
+<body>
+<div class="over">
+	<div class="top">
+		 <div class="center">
+			 <a class="podarok" href="/">ПОЛУЧИТЕ <span>ПОДАРОК </span>СЕЙЧАС</a>
+			 
+			 <div class="top_right">
+				 <a class="mail" href="/">СВЯЖИТЕСЬ С НАМИ</a>
+				 <div class="sety">
+					 <a href="/" class="face" title=""><img src="images/f.png" alt=""/></a>
+					 <a href="/" class="you" title=""><img src="images/y.png" alt=""/></a>
+				 </div>
+				 <select id="lang">
+					<option value="eng" data-imagesrc="images/ru.gif"></option>
+					<option value="fr" data-imagesrc="images/ru2.gif"></option>
+					<option value="rus" data-imagesrc="images/ru3.gif"></option>
+				 </select> 
+			 </div>
+			 
+			 <div class="search">
+				 <a class="se_show" onclick='jQuery("#search_none").toggle()'><img src="images/se2.gif" alt=""/></a>
+				 <div id="search_none">
+					 <input class="search_form" type="text" value="ПОИСК ПО САЙТУ" onblur="if(this.value=='') this.value='ПОИСК ПО САЙТУ';" onfocus="if(this.value=='ПОИСК ПО САЙТУ') this.value='';">
+					 <input class="search_submit" type="submit" id="submit" value="" title=""/>
+				 </div>
+			 </div>
+		 </div>
+	</div>
+
+	<div class="header">
+		 <div class="center">
+			 <a class="logo" href="/"><img src="images/logo.png" alt=""/></a>
+			 
+			 <div class="menu">
+				 <a class="menu_show" onclick='jQuery("#show_menu").toggle()'></a>
+				 <ul id="show_menu">
+					 <li><a href="#" title="">НОВОСТИ</a>
+						 <ul>
+							 <li><a href="#" title="">НОВОСТИ</a></li>
+							 <li><a href="#" title="">СТАТЬИ</a></li>
+							 <li><a href="#" title="">ВИДЕО</a></li>
+						 </ul>
+					 </li>
+					 <li><a href="#" title="">G-ENERGY SERVICE</a></li>
+					 <li><a href="#" title="">ГДЕ КУПИТЬ</a></li>
+					 <li><a href="#" title="">ПОДБОР МАСЛА</a></li>
+					 <li><a href="#" title="">ПРОДУКЦИЯ</a></li>
+					 <li><a href="#" title="">О БРЕНДЕ</a>
+						 <ul>
+							 <li><a href="#" title="">О БРЕНДЕ</a></li>
+							 <li><a href="#" title="">ТЕХНОЛОГИЯ ACF</a></li>
+							 <li><a href="#" title="">ПРОИЗВОДСТВО</a></li>
+							 <li><a href="#" title="">КОНТАКТЫ</a></li>
+						 </ul>
+					 </li>
+				 </ul>
+			 </div>
+			 
+		 </div>
+	</div>
+
+
+
+
+	<div class="center center_padd">
+	
+		<div class="left">
+			 <div class="menu_left">
+				 <ul>
+					 <li><a href="#" title="">НОВОСТИ</a></li><li class="act">
+					 <a href="#" title="">СТАТЬИ</a></li><li>
+					 <a href="#" title="">ВИДЕО</a></li>
+				 </ul>
+			 </div>
+			 <div class="banner">
+				<a href="/" title=""><img src="images/banner.gif" alt=""/></a>
+			 </div>
+		</div>
+		
+		<div class="right">
+			<div class="text">
+				 <h1>БАХА ЗОЛОТЫЕ ВОРОТА</h1>
+				 
+				 
+				 <div class="vid">
+					 <iframe width="100%" height="390" src="https://www.youtube.com/embed/rdt2nkiW0kw" frameborder="0" allowfullscreen></iframe>
+				 </div>
+				 <p>При поддержке генерального партнера Чемпионата и Кубка России по ралли-рейдам бренда G-Energy 25–26 января в Суздале прошел первый этап чемпионата России по внедорожным ралли среди мотоциклистов, квадроциклистов и SSV и второй этап Кубка России среди внедорожников. Гонка во Владимирской области имеет богатую историю и проводится в формате бахи, что подразумевает прохождение спортсменами круговой дистанции несколько раз. Несмотря на экстремальные морозы, достигшие –28 градусов, на старт гонки суммарно вышло 40 участников.</p>
+					 
+					 
+			</div>
+			
+			
+			
+			
+		</div>
+		
+	</div>
+
+
+
+	<div class="footer">
+		<div class="center">
+			 <div class="footer1">
+				 <div class="gp">
+					 <a href="/" title=""><img src="images/gp.png" alt=""/></a>
+				 </div>
+				 <div class="logos">
+					 <a href="/" title=""><img src="images/foot_l.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_l2.png" alt=""/></a>
+				 </div>
+				 <div class="sety_foot">
+					 <p><a href="/" title=""><img src="images/foot_f2.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_y.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_m.png" alt=""/></a>
+					 </p>
+				 </div>
+			 </div>
+			 
+			 <div class="footer2">
+				 <div class="like">
+					 <span>МНЕ НРАВИТСЯ</span>
+					 <a href="/" title=""><img src="images/foot_f.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_v.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_t.png" alt=""/></a>
+				 </div>
+				 <div class="like">
+					 <span>ПОДЕЛИТЬСЯ</span>
+					 <a href="/" title=""><img src="images/foot_f.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_v.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_o.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_t.png" alt=""/></a>
+				 </div>
+			 </div>
+			 
+			 <div class="footer3">
+				 <div class="copir">
+					 © 2009–2014, «Газпромнефть - смазочные материалы», <a href="#" title="">Контакты</a>
+				 </div>
+				 <div class="razrab">
+					 Создание сайта – <a href="#" title="">«Энсайн»</a>
+				 </div>
+				 <div class="menu_foot">
+					 <p>
+						<a class="act" href="#" title="">РУССКИЙ</a>|
+						 <a href="#" title="">ENGLISH</a>|
+						 <a href="#" title="">ITALIAN</a>|
+						 <a href="#" title="">СРПСКИ</a>
+					 </p>
+				 </div>
+			 </div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

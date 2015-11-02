@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>cmarket</name>
+	<displayName><![CDATA[Экспорт в Яндекс Маркет Кастом]]></displayName>
+	<version><![CDATA[2.2]]></version>
+	<description><![CDATA[Генератор файла экспорта для Яндекс Маркет]]></description>
+	<author><![CDATA[Hipno]]></author>
+	<tab><![CDATA[export]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>

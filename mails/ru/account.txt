@@ -1,0 +1,12 @@
+
+[{shop_url}] 
+
+Здравствуйте, {firstname} {lastname},
+
+Спасибо за регистрацию в {shop_name}. 
+
+Теперь вы можете делать заказы в
+нашем магазине: {shop_name} [{shop_url}]
+
+{shop_name} [{shop_url}] 
+

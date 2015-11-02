@@ -1,0 +1,18 @@
+*ERROR* 	2015/03/28 - 00:28:23: Property Address->dni is empty at line 866 in file classes/ObjectModel.php
+*ERROR* 	2015/03/28 - 00:28:47: Property Address->dni is empty at line 866 in file classes/ObjectModel.php
+*ERROR* 	2015/03/28 - 19:51:32: Invalid address #32 at line 366 in file override/classes/Address.php
+*ERROR* 	2015/03/28 - 19:52:03: Invalid address #32 at line 366 in file override/classes/Address.php
+*ERROR* 	2015/03/28 - 19:52:38: Invalid address #32 at line 366 in file override/classes/Address.php
+*ERROR* 	2015/03/28 - 19:53:42: Invalid address #32 at line 366 in file override/classes/Address.php
+*ERROR* 	2015/03/28 - 19:53:48: Invalid address #32 at line 366 in file override/classes/Address.php
+*ERROR* 	2015/03/28 - 19:56:50: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 19:56:56: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 19:57:03: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 20:54:07: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 21:09:04: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 21:09:48: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 21:10:50: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 21:11:22: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 21:21:50: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 21:22:57: Invalid address #32 at line 362 in file classes/Address.php
+*ERROR* 	2015/03/28 - 21:25:12: Invalid address #32 at line 362 in file classes/Address.php

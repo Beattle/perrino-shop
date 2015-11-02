@@ -1,0 +1,1024 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Title</title>
+
+<!--БИБЛИОТЕКА-->
+<script src="js/jquery-1.9.1.min.js"></script> 
+
+<!-- Табы -->
+<script src="js/tabs/organictabs.jquery.js"></script>
+	
+<!--ЧЕКБОКСЫ-->
+<script type="text/javascript" src="js/select/custom_el.js"></script>
+<!--СКРОЛЛ-->
+<!-- <script type="text/javascript" src="js/scroll/jquery-1.11.1.min.js"></script> -->
+<script type="text/javascript" src="js/scroll/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="js/scroll/jquery.mousewheel.js"></script>
+
+<!-- Owl slider -->	
+<script src="js/jquery.ddslick.min.js"></script>
+<script src="js/owl/owl.carousel.js"></script>
+<!-- <script src="js/owl/jquery.bpopup.min.js"></script> -->
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      var sync1 = $("#sync1");
+      var sync2 = $("#sync2");
+
+      sync1.owlCarousel({
+        singleItem : true,
+        slideSpeed : 1000,
+        navigation: true,
+        pagination:false,
+        afterAction : syncPosition,
+        responsiveRefreshRate : 200,
+      });
+
+      sync2.owlCarousel({
+        items : 7,
+        itemsDesktop      : [1199,7],
+        itemsDesktopSmall     : [979,7],
+        itemsTablet       : [768,7],
+        itemsMobile       : [479,7],
+        pagination:false,
+        responsiveRefreshRate : 100,
+        afterInit : function(el){
+          el.find(".owl-item").eq(0).addClass("synced");
+        }
+      });
+
+      function syncPosition(el){
+        var current = this.currentItem;
+        $("#sync2")
+          .find(".owl-item")
+          .removeClass("synced")
+          .eq(current)
+          .addClass("synced")
+        if($("#sync2").data("owlCarousel") !== undefined){
+          center(current)
+        }
+
+      }
+
+      $("#sync2").on("click", ".owl-item", function(e){
+        e.preventDefault();
+        var number = $(this).data("owlItem");
+        sync1.trigger("owl.goTo",number);
+      });
+
+      function center(number){
+        var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
+
+        var num = number;
+        var found = false;
+        for(var i in sync2visible){
+          if(num === sync2visible[i]){
+            var found = true;
+          }
+        }
+
+        if(found===false){
+          if(num>sync2visible[sync2visible.length-1]){
+            sync2.trigger("owl.goTo", num - sync2visible.length+2)
+          }else{
+            if(num - 1 === -1){
+              num = 0;
+            }
+            sync2.trigger("owl.goTo", num);
+          }
+        } else if(num === sync2visible[sync2visible.length-1]){
+          sync2.trigger("owl.goTo", sync2visible[1])
+        } else if(num === sync2visible[0]){
+          sync2.trigger("owl.goTo", num-1)
+        }
+      }
+
+    });
+</script>
+	
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	$("#tabs").organicTabs();
+
+	//$("#slider").owlCarousel({  
+		//autoPlay: 6000,
+		//singleItem : true,
+		//navigation:	true
+	  //}); 
+	  
+
+
+	$("#slider_news").owlCarousel({  
+		autoPlay: false,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1280,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	});
+
+	$("#slider_vid").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1280,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	  });
+
+	$("#slider_stat").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1280,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	});
+	
+	
+
+});
+</script>
+<script src="js/js.js"></script>
+
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<div class="popup gift">
+	 <div class="close"></div>
+	 <p>Полезные советы от G-Energy</p>
+	 <div class="popup_text">
+		ПОЛУЧИТЕ СПЕЦИАЛЬНОЕ ИЗДАНИЕ
+		<span>«ПОЛЕЗНЫЕ СОВЕТЫ АВТОМОБИЛИСТУ»</span>
+		<b>БЕСПЛАТНО!</b>
+	 </div>
+	 
+	 <div class="popup_img">
+		<img src="images/popup_img.png" alt=""/>
+	 </div>
+	 
+	 <div class="popup_form">
+		 <form id="11111" method="post" action=""> 
+			 <input class="form" type="text" value="ВАШЕ ИМЯ" onblur="if(this.value=='') this.value='ВАШЕ ИМЯ';" onfocus="if(this.value=='ВАШЕ ИМЯ') this.value='';">
+			 <input class="form" type="text" value="ВАШ E-mail" onblur="if(this.value=='') this.value='ВАШ E-mail';" onfocus="if(this.value=='ВАШ E-mail') this.value='';">
+			 <input class="form" type="text" value="ВАШ ГОРОД" onblur="if(this.value=='') this.value='ВАШ ГОРОД';" onfocus="if(this.value=='ВАШ ГОРОД') this.value='';">
+			 <input type="submit" id="submit" value="ПРОДОЛЖИТЬ" title=""/>
+		 </form>
+	 </div>
+</div>
+
+<div class="popup iframe">
+	dssdfds
+</div>
+
+<div class="over">
+	<div class="top">
+		 <div class="center">
+			 <a class="podarok" href="/">ПОЛУЧИТЕ <span>ПОДАРОК </span>СЕЙЧАС</a>
+			 
+			 <div class="top_right">
+				 <a class="mail" href="/">СВЯЖИТЕСЬ С НАМИ</a>
+				 <div class="sety">
+					 <a href="/" class="face" title=""><img src="images/f.png" alt=""/></a>
+					 <a href="/" class="you" title=""><img src="images/y.png" alt=""/></a>
+				 </div>
+				 <select id="lang">
+					<option value="eng" data-imagesrc="images/ru.gif"></option>
+					<option value="fr" data-imagesrc="images/ru2.gif"></option>
+					<option value="rus" data-imagesrc="images/ru3.gif"></option>
+					<option value="rus" data-imagesrc="images/ru4.gif"></option>
+				 </select> 
+			 </div>
+			 
+			 <div class="search">
+				 <a class="se_show" onclick='jQuery("#search_none").toggle()'><img src="images/se2.gif" alt=""/></a>
+				 <div id="search_none">
+					 <input class="search_form" type="text" value="ПОИСК ПО САЙТУ" onblur="if(this.value=='') this.value='ПОИСК ПО САЙТУ';" onfocus="if(this.value=='ПОИСК ПО САЙТУ') this.value='';">
+					 <input class="search_submit" type="submit" id="submit" value="" title=""/>
+				 </div>
+			 </div>
+		 </div>
+	</div>
+
+	<div class="header">
+		 <div class="center">
+			 <a class="logo" href="/"><img src="images/logo.png" alt=""/></a>
+			 
+			 <div class="menu">
+				 <a class="menu_show"></a>
+				 <a class="menu_over"></a>
+				 <ul id="show_menu">
+					 <li><a href="#" title="">НОВОСТИ</a>
+						 <ul>
+							 <li><a href="#" title="">НОВОСТИ</a></li>
+							 <li><a href="#" title="">СТАТЬИ</a></li>
+							 <li><a href="#" title="">ВИДЕО</a></li>
+						 </ul>
+					 </li>
+					 <li><a href="#" title="">G-ENERGY SERVICE</a></li>
+					 <li><a href="#" title="">ГДЕ КУПИТЬ</a></li>
+					 <li><a href="#" title="">ПОДБОР МАСЛА</a></li>
+					 <li><a href="#" title="">ПРОДУКЦИЯ</a></li>
+					 <li><a href="#" title="">О БРЕНДЕ</a>
+						 <ul>
+							 <li><a href="#" title="">О БРЕНДЕ</a></li>
+							 <li><a href="#" title="">ТЕХНОЛОГИЯ ACF</a></li>
+							 <li><a href="#" title="">ПРОИЗВОДСТВО</a></li>
+							 <li><a href="#" title="">КОНТАКТЫ</a></li>
+						 </ul>
+					 </li>
+				 </ul>
+			 </div>
+			 
+		 </div>
+	</div>
+
+	 <div class="slider_cont">
+		
+			 <div id="sync1" class="owl-carousel">
+				 <div class="item_cont">
+					 <div class="item_cont2">
+						 <div class="slider_img">
+							 <img src="images/slider.png" alt=""/>
+						 </div>
+						 
+						 <div class="slider_text">
+							 <p><span style="color:#e95f0e">G-</span>ENERGY</p> 
+							 <div>Моторные масла G-Energy предназначены для современных легковых автомобилей европейского, американского и японского производства и включают в себя две серии продуктов: серию синтетических масел F Synth и серию полусинтетических масел S Synth.</div> 
+							 <a href="#" title="">УЗНАЙТЕ БОЛЬШЕ</a>
+						 </div>
+					 </div>
+				 </div>
+				 
+				 <div class="item_cont">
+					 <div class="item_cont2">
+						 <div class="slider_img">
+							 <img src="images/slider.png" alt=""/>
+						 </div>
+						 
+						 <div class="slider_text">
+							 <p><span style="color:#e95f0e">G-</span>ENERGY</p> 
+							<div>Моторные масла G-Energy предназначены для современных легковых автомобилей европейского, американского и японского производства и включают в себя две серии продуктов: серию синтетических масел F Synth и серию полусинтетических масел S Synth.</div>
+							<a href="#" title="">УЗНАЙТЕ БОЛЬШЕ</a>
+						 </div>
+					 </div>
+				 </div>
+				 
+				 <div class="item_cont">
+					 <div class="item_cont2">
+						 <div class="slider_img">
+							 <img src="images/slider.png" alt=""/>
+						 </div>
+						 
+						 <div class="slider_text">
+							 <p><span style="color:#e95f0e">G-</span>ENERGY</p> 
+							 <div>Моторные масла G-Energy предназначены для современных легковых автомобилей европейского, американского и японского производства и включают в себя две серии продуктов: серию синтетических масел F Synth и серию полусинтетических масел S Synth.</div>
+							 <a href="#" title="">УЗНАЙТЕ БОЛЬШЕ</a>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="item_cont">
+					 <div class="item_cont2">
+						 <div class="slider_img">
+							 <img src="images/slider.png" alt=""/>
+						 </div>
+						 
+						 <div class="slider_text">
+							 <p><span style="color:#e95f0e">G-</span>ENERGY</p> 
+							 <div>Моторные масла G-Energy предназначены для современных легковых автомобилей европейского, американского и японского производства и включают в себя две серии продуктов: серию синтетических масел F Synth и серию полусинтетических масел S Synth.</div>
+							 <a href="#" title="">УЗНАЙТЕ БОЛЬШЕ</a>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="item_cont">
+					 <div class="item_cont2">
+						 <div class="slider_img">
+							 <img src="images/slider.png" alt=""/>
+						 </div>
+						 
+						 <div class="slider_text">
+							 <p><span style="color:#e95f0e">G-</span>ENERGY</p> 
+							 <div>Моторные масла G-Energy предназначены для современных легковых автомобилей европейского, американского и японского производства и включают в себя две серии продуктов: серию синтетических масел F Synth и серию полусинтетических масел S Synth.</div>
+							 <a href="#" title="">УЗНАЙТЕ БОЛЬШЕ</a>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="item_cont">
+					 <div class="item_cont2">
+						 <div class="slider_img">
+							 <img src="images/slider.png" alt=""/>
+						 </div>
+						 
+						 <div class="slider_text">
+							 <p><span style="color:#e95f0e">G-</span>ENERGY</p> 
+							 <div>Моторные масла G-Energy предназначены для современных легковых автомобилей европейского, американского и японского производства и включают в себя две серии продуктов: серию синтетических масел F Synth и серию полусинтетических масел S Synth.</div>
+							 <a href="#" title="">УЗНАЙТЕ БОЛЬШЕ</a>
+						 </div>
+					 </div>
+				 </div>
+				 <div class="item_cont">
+					 <div class="item_cont2">
+						 <div class="slider_img">
+							 <img src="images/slider.png" alt=""/>
+						 </div>
+						 
+						 <div class="slider_text">
+							 <p><span style="color:#e95f0e">G-</span>ENERGY</p> 
+							 <div>Моторные масла G-Energy предназначены для современных легковых автомобилей европейского, американского и японского производства и включают в себя две серии продуктов: серию синтетических масел F Synth и серию полусинтетических масел S Synth.</div>
+							 <a href="#" title="">УЗНАЙТЕ БОЛЬШЕ</a>
+						 </div>
+					 </div>
+				 </div>
+			 
+		</div>
+		
+		 <div id="sync2" class="owl-carousel">
+			 <div class="act"><span> </span>
+				 <div class="slider_popup">
+					 G-Energy
+				 </div>
+			 </div>
+			 <div class="act"><span> </span>
+				 <div class="slider_popup">
+					 2-Energy Service line
+				 </div>
+			 </div>
+			 <div class="act"><span> </span>
+				 <div class="slider_popup">
+					 3-Energy Service line Service line
+				 </div>
+			 </div>
+			 <div class="act"><span> </span>
+				 <div class="slider_popup">
+					 4-Energy Service line
+				 </div>
+			 </div>
+			 <div class="act"><span> </span>
+				 <div class="slider_popup">
+					 5-Energy Service line
+				 </div>
+			 </div>
+			 <div class="act"><span> </span>
+				 <div class="slider_popup">
+					 6-Energy Service line
+				 </div>
+			 </div>
+			 <div class="act"><span> </span>
+				 <div class="slider_popup">
+					 7-Energy Service line
+				 </div>
+			 </div>
+		 </div>
+	</div>
+	
+	<div class="owl-controls clickable">
+		<div class="owl-pagination">
+			<div class="owl-page">
+				<span></span>
+			</div>
+			<div class="owl-page">
+				<span></span>
+			</div>
+			<div class="owl-page">
+				<span></span>
+			</div>
+			<div class="owl-page">
+				<span></span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="iframe_popup" style="display: none">
+		iframe
+	</div>
+
+
+	<a href="#" class="oil">
+		 <div class="center">
+			 <p>ПОДБЕРИТЕ МАСЛО <i>G-ENERGY</i><span><img src="images/oil.png"></span>ДЛЯ <i>СВОЕГО</i> АВТОМОБИЛЯ</p>
+		 </div>
+	</a>
+
+
+	<div id="tabs">		
+		<div class="center">		
+			 <ul class="tabs_nav">
+				<li><a href="#tab1" class="current">НОВОСТИ</a></li>
+				<li><a href="#tab2">СТАТЬИ</a></li>
+				<li><a href="#tab3">ВИДЕО</a></li>
+			 </ul>
+
+			 <div class="list-wrap">
+				 <ul id="tab1"> 
+					 <li>
+						 <div id="slider_news" class="owl-carousel tabs_news">
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+						 </div>
+					 </li>
+				 </ul>
+				 
+				 <ul id="tab2" class="hide"> 
+					 <li>
+						<div id="slider_stat" class="owl-carousel tabs_news">
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+						 </div>
+					 </li>
+				 </ul>
+				 <ul id="tab3" class="hide"> 
+					 <li>
+						<div id="slider_vid" class="owl-carousel tabs_news">
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+							 <div class="news_cont">
+								 <div class="news_img">
+									 <img src="images/news.png" alt=""/>
+								 </div>
+								 
+								 <div class="news_text">
+									 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+								 </div>
+							 </div>
+						 </div>
+					 </li>
+				 </ul>
+			 </div>
+			
+		</div>
+	</div>
+
+
+	 <!-- <div id="news_mob">	
+		 
+		 <div class="news_mob_cont">
+			 <div class="news_mob_button">
+				 <span>НОВОСТИ</span>
+			 </div>
+			 <div class="news_mob_drop">
+				 <div class="news_mob_title">
+					 СТАТЬИ
+				 </div>
+				 
+				 <div id="slider_news_m" class="owl-carousel">
+					 <div class="news_item">
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+					 </div>
+					 <div class="news_item">
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+						 <div class="news_cont">
+							 <div class="news_img">
+								 <img src="images/news.png" alt=""/>
+							 </div>
+							 
+							 <div class="news_text">
+								 <a href="#" title="">Борьба G-Energy Team за Кубок Мира продолжится в Венгрии </a>
+							 </div>
+						 </div>
+					 </div>
+					 
+				 </div>
+			 </div>
+		 </div>
+	 </div>
+	 -->
+	
+	<div class="tehno">
+		 <div class="center">
+			 
+			 <div class="tehno_title">
+				 <p>ТЕХНОЛОГИЯ ACF</p>
+				 Adaptive Components Formula
+			 </div>
+			 
+			 <div class="tehno_resp">
+				 <div class="tehno_bl">
+					 <a>
+						 <div class="tehno_img">
+							 <img src="images/tehno_1.png" alt=""/>
+							 <p>ФОРСИРОВАННЫЙ<br />РЕЖИМ РАБОТЫ</p>
+						 </div>
+						 <div class="tehno_text">
+							 Масло производится на
+							полностью синтетической
+							основе и специально
+							подобранном пакете
+							присадок. Обеспечивает
+							надёжную работу и защиту
+							двигателя при любых
+							условиях эксплуатации,
+							как при магистральном, так
+							и при городском цикле.
+						 </div>
+					 </a>
+				 </div>
+			 </div>
+			 <div class="tehno_resp">
+				 <div class="tehno_bl">
+					 <a>
+						 <div class="tehno_img">
+							 <img src="images/tehno_2.png" alt=""/>
+							 <p>ФОРСИРОВАННЫЙ<br />РЕЖИМ РАБОТЫ</p>
+						 </div>
+						 <div class="tehno_text">
+							 Масло производится на
+							полностью синтетической
+							основе и специально
+							подобранном пакете
+							присадок. Обеспечивает
+							надёжную работу и защиту
+							двигателя при любых
+							условиях эксплуатации,
+							как при магистральном, так
+							и при городском цикле.
+						 </div>
+					 </a>
+				 </div>
+			 </div>
+			 <div class="tehno_resp">
+				 <div class="tehno_bl">
+					 <a>
+						 <div class="tehno_img">
+							 <img src="images/tehno_3.png" alt=""/>
+							 <p>ЗИМНИЙ РЕЖИМ<br />ЭКСПЛУАТАЦИИ</p>
+						 </div>
+						 <div class="tehno_text">
+							 Масло производится на
+							полностью синтетической
+							основе и специально
+							подобранном пакете
+							присадок. Обеспечивает
+							надёжную работу и защиту
+							двигателя при любых
+							условиях эксплуатации,
+							как при магистральном, так
+							и при городском цикле.
+						 </div>
+					 </a>
+				 </div>
+			 </div>
+			 <div class="tehno_resp">
+				 <div class="tehno_bl tehno_st">
+					 <a href="#" title="">
+						 <div class="tehno_img">
+							 <span></span>
+							 <p>РЕЖИМ ГОРОДСКОЙ<br />ПРОБКИ</p>
+						 </div>
+					 </a>
+				 </div>
+			 </div>
+			 
+		 </div>
+	</div>
+
+
+	<div class="map_title">
+		 <div class="center">
+			 <p>МЕСТА ПРОДАЖ<span><img src="images/map_title.png"></span>РЯДОМ С ВАМИ</p>
+			 <p class="mesta">МЕСТА <span><img src="images/map_title.png"></span> ПРОДАЖ</p>
+		 </div>
+	</div>
+
+	<div class="map_cont">
+
+		 <div class="map_top">
+			 <div class="center">
+				 <a href="#" class="svernut">РАЗВЕРНУТЬ КАРТУ</a>
+				 <a href="#" class="razdel">ПЕРЕЙТИ В РАЗДЕЛ</a>
+				 <p>МОСКВА И МОСКОВСКАЯ ОБЛАСТЬ</p>
+			 </div>
+		 </div>
+		 
+		 <div class="map">
+			 <img src="images/map.jpg" alt=""/>
+		 </div>
+		 
+		 <div class="city_bl">
+			 <div id="wrapper">
+				 <div class="city_select">
+					 <p>Москва</p>
+					 <span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Томск</p>
+					<span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Омск</p>
+					 <span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Сургут</p>
+					 <span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Ханты-Мансийск</p>
+					 <span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Новосибирск</p>
+					 <span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Санкт-Петербург</p>
+					 <span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Москва</p>
+					 <span>Московская область</span>
+				 </div>
+				 <div class="city_select">
+					 <p>Москва</p>
+					 <span>Московская область</span>
+				 </div>
+			</div>
+			
+		 </div>
+			 
+				 
+
+		 <div class="map_bott">
+			 <div class="center">
+			 
+				 <div class="city_cont">
+				 
+					 <div class="region">
+						 <span>Сменить регион: </span>
+						 <select id="country">
+							<option value="13" data-imagesrc="images/ru.gif">РОССИЯ</option>
+							<option value="f1r" data-imagesrc="images/ru2.gif">ВЕЛИКОБРИТАНИЯ</option>
+							<option value="ru2s" data-imagesrc="images/ru3.gif">ИТАЛИЯ</option>
+							<option value="ru2s" data-imagesrc="images/ru4.gif">СЕРБИЯ</option>
+						 </select> 
+					 </div>
+					 
+					 <div class="city_click"><input type="text" value="Москва"></div>
+					 
+					 
+					 
+				 </div>
+				 <div class="checkbox">
+					 <label><input type="checkbox" name="c1" />Места продаж</label>
+					 <label><input type="checkbox" name="c1" />G-Energy Service</label>
+				 </div>
+				 
+				 
+			 </div>
+		 </div>
+		 
+	</div>
+
+
+	<div class="podarok2">
+		 <div class="center">
+		 
+			 <div class="pod_title">
+				 <i>ПОЛУЧИТЕ ПОДАРОК<span><img src="images/pod_title.png"></span>ПРЯМО СЕЙЧАС</i>
+				 <i class="pod">ПОЛУЧИТЕ <span><img src="images/pod_title.png"></span> ПОДАРОК</i>
+			 </div>
+		 
+			 <form id="11111" method="post" action=""> 
+				 <div class="pod_form">
+					 <input type="text" value="ВВЕДИТЕ ВАШЕ ИМЯ" onblur="if(this.value=='') this.value='ВВЕДИТЕ ВАШЕ ИМЯ';" onfocus="if(this.value=='ВВЕДИТЕ ВАШЕ ИМЯ') this.value='';">
+					 <p><img src="images/allert.png" alt=""/>НЕ КОРРЕКТНОЕ ИМЯ</p>
+				 </div>
+				 <div class="pod_form">
+					 <input type="text" value="ВЫБЕРИТЕ ВАШ ГОРОД" onblur="if(this.value=='') this.value='ВЫБЕРИТЕ ВАШ ГОРОД';" onfocus="if(this.value=='ВЫБЕРИТЕ ВАШ ГОРОД') this.value='';">
+					 <p><img src="images/allert.png" alt=""/>ВЫБЕРИТЕ ГОРОД</p>
+				 </div>
+				 <div class="pod_form">
+					 <input type="text" value="ВВЕДЕТЕ ВАШ E-MAIL" onblur="if(this.value=='') this.value='ВВЕДЕТЕ ВАШ E-MAIL';" onfocus="if(this.value=='ВВЕДЕТЕ ВАШ E-MAIL') this.value='';">
+					 <p><img src="images/allert.png" alt=""/>НЕ КОРРЕКТНЫЙ E-MAIL</p>
+				 </div>
+				 <div class="pod_submit">
+					<input class="submit" type="submit" id="submit" value="ПРОДОЛЖИТЬ" title=""/>
+				 </div>
+			 </form> 
+		 </div>
+	</div>
+
+
+	<div class="main_text">
+		 <div class="center">
+		 
+			 <div class="main_title">
+				 ПРОДУКЦИЯ<span><img src="images/main_text.png"></span>G-ENERGY
+			 </div>
+		 
+			 <p>G–Energy – премиальный бренд моторных масел компании «Газпром нефть». Масла G–Energy предназначены для самых современных легковых автомобилей европейского, американского и японского производства. Уникальная адаптивная технология ACF, используемая в масле G–Energy, позволяет усиливать необходимые эксплуатационные свойства в зависимости от режимов работы двигателя, в нужный момент активируя необходимые присадки. Продукция выпускается на заводах компании «Газпромнефть – смазочные материалы» в городе Бари (Италия). В 2013 году компания «Газпромнефть–смазочные материалы» разработала специализированную линейку масел G–Energy Racing для всех типов спортивных двигателей. Масла G–Energy Racing обеспечивают максимальную защиту двигателя от износа, а также эффективно предохраняют его детали от образования отложений, сохраняя эксплуатационные. 
+			 </p>
+			 
+			 <div class="menu_text">
+				 <ul>
+					 <li><a href="#" title="">УЗНАТЬ БОЛЬШЕ</a></li>
+					 <li><a href="#" title="">ПРОИЗВОДСТВО</a></li>
+					 <li><a href="#" title="">КОНТАКТЫ</a></li>
+				 </ul>
+			 </div>
+		 </div>
+	</div>
+
+
+
+	<div class="footer">
+		<div class="center">
+			 <div class="footer1">
+				 <div class="gp">
+					 <a href="/" title=""><img src="images/gp.png" alt="" rel="gp"/></a>
+				 </div>
+				 <div class="logos">
+					 <a href="/" title=""><img src="images/foot_l.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_l2.png" alt=""/></a>
+				 </div>
+				 <div class="sety_foot">
+					 <p><a href="/" title=""><img src="images/foot_f2.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_y.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_m.png" alt=""/></a>
+					 </p>
+				 </div>
+			 </div>
+			 
+			 <div class="footer2">
+				 <div class="like">
+					 <span>МНЕ НРАВИТСЯ</span>
+					 <a href="/" title=""><img src="images/foot_f.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_v.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_t.png" alt=""/></a>
+				 </div>
+				 <div class="like">
+					 <span>ПОДЕЛИТЬСЯ</span>
+					 <a href="/" title=""><img src="images/foot_f.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_v.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_o.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_t.png" alt=""/></a>
+				 </div>
+			 </div>
+			 
+			 <div class="footer3">
+				 <div class="copir">
+					 © 2009–2014, «Газпромнефть - смазочные материалы», <a href="#" title="">Контакты</a>
+				 </div>
+				 <div class="razrab">
+					 Создание сайта – <a href="#" title="">«Энсайн»</a>
+				 </div>
+				 <div class="menu_foot">
+					 <p>
+						<a class="act" href="#" title="">РУССКИЙ</a>|
+						 <a href="#" title="">ENGLISH</a>|
+						 <a href="#" title="">ITALIAN</a>|
+						 <a href="#" title="">СРПСКИ</a>
+					 </p>
+				 </div>
+			 </div>
+		</div>
+	</div>
+</div>
+
+<div class="in_top"></div>
+
+</body>
+</html>

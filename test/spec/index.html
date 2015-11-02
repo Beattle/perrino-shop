@@ -1,0 +1,736 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Title</title>
+
+<!-- БИБЛИОТЕКА -->	
+<script src="js/jquery-1.9.1.min.js"></script> 
+
+<!-- Owl slider -->	
+<script src="js/owl/owl.carousel.js"></script>
+
+<script>
+$(document).ready(function() {
+  $("#vip_owl").owlCarousel({  
+	autoPlay: 3000,
+	navigation: true,
+	pagination: false,
+	items : 1,
+	itemsDesktop: [1024,2],
+	itemsTabletSmall: [520,1]
+  });
+  
+  $("#foto").owlCarousel({  
+	navigation: true,
+	pagination: false,
+	items : 3,
+	itemsDesktop: [1024,2],
+	itemsTabletSmall: [520,1]
+  });
+
+});
+</script>
+
+<!-- SELECT -->	
+<script src="js/select/jquery.selectbox.min.js"></script>
+<script>
+		(function($) {
+		$(function() {
+
+			$('select').selectbox();
+
+			$('#add').click(function(e) {
+				$(this).parents('div.section').append('<br /><br /><select><option>-- Выберите --</option><option>Пункт 1</option><option>Пункт 2</option><option>Пункт 3</option><option>Пункт 4</option><option>Пункт 5</option></select>');
+				$('select').selectbox();
+				e.preventDefault();
+			})
+
+			$('#add2').click(function(e) {
+				var options = '';
+				for (i = 1; i <= 5; i++) {
+					options += '<option>Option ' + i + '</option>';
+				}
+				$(this).parents('div.section').find('select').each(function() {
+					$(this).append(options);
+				})
+				$('select').trigger('refresh');
+				e.preventDefault();
+			})
+
+			$('#che').click(function(e) {
+				$(this).parents('div.section').find('option:nth-child(5)').attr('selected', true);
+				$('select').trigger('refresh');
+				e.preventDefault();
+			})
+
+		})
+		})(jQuery)
+	</script>
+
+
+
+
+</head>
+<body>
+
+<div class="header">
+     <div class="center relative">
+         <div class="logo">
+             <a href="/"><img src="images/logo.png" alt=""/></a>
+         </div>
+		 <div class="add_obyav">
+			 <a class="button_y" href="#">
+				<img src="images/add_obyav.png" alt=""/>
+				ПОДАТЬ<br />ОБЪЯВЛЕНИЕ
+			 </a>
+		 </div>
+		 <div class="tel">
+			 Звоните нам
+			 <p>+7 (351) 283 28 47</p>
+			 <p>+7 908 055 88 11</p>
+		 </div>
+		 
+		 <ul class="header_menu">
+		     <li><a href="#" title="">О компании</a></li>
+		     <li><a href="#" title="">Спецпредложения</a></li>
+		     <li><a href="#" title="">Контакты</a></li>
+		 </ul>
+		 
+		 <div class="rega">
+			 <a href="#" title="">Вход</a>/<a href="#" title="">Регистрация</a>
+		 </div>
+		 
+	 </div>
+</div>
+
+<div class="center">
+	 <div class="menu">
+		 <ul>
+			 <li><a href="#" title="">
+			 <img src="images/arenda.png" alt=""/>
+			 Аренда</a></li>
+			 <li><a href="#" title="">
+			 <img src="images/prodaja.png" alt=""/>
+			 Продажа</a></li>
+			 <li><a href="#" title="">
+			 <img src="images/pitak.png" alt=""/>
+			 ПИТАК</a></li>
+			 <li><a href="#" title="">
+			 <img src="images/remont.png" alt=""/>
+			 Запчасти</a></li>
+			 <li><a href="#" title="">
+			 <img src="images/servis.png" alt=""/>
+			 Сервис</a></li>
+		 </ul>
+	 </div>
+	 
+	 <div id="banner_main" class="owl-carousel">
+		 <img src="images/banner_main.png" alt="Owl Image">
+	 </div>
+	 
+	 
+	 <div class="left">
+		 <div class="vip">
+			 
+			 <div class="vip_title">
+				 ГОРЯЧИЕ ОБЪЯВЛЕНИЯ
+			 </div>
+			 
+			 <div id="vip_owl" class="owl-carousel">
+				 <div class="vip_bl">
+					 <div class="vip_img">
+						 <span><img src="images/img1.png" alt=""/></span>
+					 </div>
+					 <div class="vip_name">
+						 <a href="/" title="">Ивановец КС-35715 2015 года</a>
+					 </div>
+					 <div class="vip_cena">
+						 900 руб
+					 </div>
+					 <div class="vip_text">
+						 ТОО «Ивановская Марка» Гарантия составляет 18 месяцев или 1000 м/ч...
+					 </div>
+				 </div>
+				 <div class="vip_bl">
+					 <div class="vip_img">
+						 <span><img src="images/img2.png" alt=""/></span>
+					 </div>
+					 <div class="vip_name">
+						 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+					 </div>
+					 <div class="vip_cena">
+						 1500 руб
+					 </div>
+					 <div class="vip_text">
+						 ТОО «Ивановская Марка» Гарантия
+					 </div>
+				 </div>
+				 <div class="vip_bl">
+					 <div class="vip_img">
+						 <span><img src="images/img3.png" alt=""/></span>
+					 </div>
+					 <div class="vip_name">
+						 <a href="/" title="">Ивановец КС-35715 2015 года</a>
+					 </div>
+					 <div class="vip_cena">
+						 900 руб
+					 </div>
+					 <div class="vip_text">
+						 ТОО «Ивановская Марка» Гарантия составляет 18 месяцев или 1000 м/ч...
+					 </div>
+				 </div>
+			 </div>
+			 
+		 </div>
+		 
+		 
+		 <div id="banner_left" class="owl-carousel">
+			 <img src="images/banner_left.png" alt="Owl Image">
+		 </div>
+		 
+		 <div class="black_spisok">
+			 <a href="#" title="">ЧЕРНЫЙ СПИСОК</a>
+		 </div>
+		 
+		 
+	 </div>
+	 
+	 
+	 
+	 
+	 <div class="right_pespons">
+		 <div class="right">
+		 
+			 <div class="title_razdel title_news">
+				 Лидеры
+			 </div>
+			 
+			 <div class="over_blocks liders">
+				 <div class="four_cont">
+					
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img3.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img1.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img3.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img1.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 
+				 </div>
+			 </div>
+			 
+			 <div class="pitak">
+				 <div class="pitak_title">
+					 <span>ПИТАК</span>
+				 </div>
+				 <div class="pitak_cont">
+					 <div class="pitak_newact">
+						 Новые
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 года</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+				 </div>
+				 
+				 <div class="pitak_cont">
+					 <div class="pitak_newact">
+						 Актуальные
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+					 <div class="pitak_obyava">
+						 <a href="/" title="">Ивановец КС-35715 2015 годагода</a>
+						 <p>500 р</p>
+					 </div>
+				 </div>
+			 </div>
+			 
+			 
+			 <div class="title_razdel title_news">
+				 Популярные авторы
+			 </div>
+			 
+			 <div class="top_avtor">
+				 <div class="izbrannoe_bl">
+					 <span class="foto">
+						 <img src="images/foto.gif" alt=""/>
+					 </span> 
+					 <div class="izbrannoe_title">
+						<a href="#" title="">Тони старк</a>
+					 </div>
+					 <p>Объявлений: <a href="#" title="">69</a></p>
+					 <p>Всего просмотров: 2045</p>
+				 </div> 
+
+				 <div class="izbrannoe_bl">
+					 <span class="foto">
+						 <img src="images/foto.gif" alt=""/>
+					 </span> 
+					 <div class="izbrannoe_title">
+						<a href="#" title="">Тони старк</a>
+					 </div>
+					 <p>Объявлений: <a href="#" title="">69</a></p>
+					 <p>Всего просмотров: 2045</p>
+				 </div> 
+				 <div class="izbrannoe_bl">
+					 <span class="foto">
+						 <img src="images/foto.gif" alt=""/>
+					 </span> 
+					 <div class="izbrannoe_title">
+						<a href="#" title="">Тони старк</a>
+					 </div>
+					 <p>Объявлений: <a href="#" title="">69</a></p>
+					 <p>Всего просмотров: 2045</p>
+				 </div> 
+				 <div class="izbrannoe_bl">
+					 <span class="foto">
+						 <img src="images/foto.gif" alt=""/>
+					 </span> 
+					 <div class="izbrannoe_title">
+						<a href="#" title="">Тони старк</a>
+					 </div>
+					 <p>Объявлений: <a href="#" title="">69</a></p>
+					 <p>Всего просмотров: 2045</p>
+				 </div> 
+				 <div class="izbrannoe_bl">
+					 <span class="foto">
+						 <img src="images/foto.gif" alt=""/>
+					 </span> 
+					 <div class="izbrannoe_title">
+						<a href="#" title="">Тони старк</a>
+					 </div>
+					 <p>Объявлений: <a href="#" title="">69</a></p>
+					 <p>Всего просмотров: 2045</p>
+				 </div> 
+				 <div class="izbrannoe_bl">
+					 <span class="foto">
+						 <img src="images/foto.gif" alt=""/>
+					 </span> 
+					 <div class="izbrannoe_title">
+						<a href="#" title="">Тони старк</a>
+					 </div>
+					 <p>Объявлений: <a href="#" title="">69</a></p>
+					 <p>Всего просмотров: 2045</p>
+				 </div> 
+			 </div> 
+			 
+			 
+			 <div class="title_razdel">
+				 Новые объявления
+				 <span><a href="#" title="">Вся техника</a></span>
+			 </div>
+			 
+			 <div class="over_blocks">
+				 <div class="four_cont">
+					
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img3.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img1.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img3.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img1.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+							 <div class="obyav_cena">
+								 1500 руб
+							 </div>
+						 </div>
+					 </div>
+					 
+				 </div>
+			 </div>
+			 
+			 
+			 
+			 <div class="title_razdel title_news">
+				 Главные новости
+				 <span><a href="#" title="">Все новости</a></span>
+			 </div>
+			 
+			 <div class="over_blocks liders main_news">
+				 <div class="four_cont">
+					
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img3.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Человека сбил трактор! Дважды!</a>
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img1.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+						 </div>
+					 </div>
+					 <div class="obyav_response">
+						 <div class="obyav_bl">
+							 <div class="obyav_img">
+								 <span><img src="images/img2.png" alt=""/></span>
+							 </div>
+							 <div class="obyav_name">
+								 <a href="/" title="">Lutong LTC 08H 2014 года</a>
+							 </div>
+						 </div>
+					 </div>
+					 
+				 </div>
+			 </div>
+			 
+			 <div class="more_news">
+				 <div class="pitak_cont">
+					 <div class="pitak_newact">
+						 Смотрите так же
+					 </div>
+					 <div class="more_news_bl">
+						 <a href="/" title="">Трактор переехал человека</a>
+					 </div>
+					 <div class="more_news_bl">
+						 <a href="/" title="">США эвакуируют сотрудников посольства   в Йемене</a>
+					 </div>
+					 <div class="more_news_bl">
+						 <a href="/" title="">Ивановец КС-35715 2015 года</a>
+					 </div>
+				 </div>
+				 <div class="pitak_cont">
+					 <div class="pitak_newact">
+						 Самые обсуждаемые
+					 </div>
+					 <div class="more_news_bl">
+						 <a href="/" title="">Трактор переехал человека</a>
+					 </div>
+					 <div class="more_news_bl">
+						 <a href="/" title="">США эвакуируют сотрудников посольства   в Йемене</a>
+					 </div>
+					 <div class="more_news_bl">
+						 <a href="/" title="">Ивановец КС-35715 2015 года</a>
+					 </div>
+				 </div>
+			 </div>
+			 
+
+			 
+		 </div>
+	 </div>
+	 
+	 <div class="footer_menu">
+		 <div class="footer_menu_resp">
+			 <p>О компании</p>
+			 <ul>
+				 <li><a href="#" title="">История создания</a></li>
+				 <li><a href="#" title="">Персонал </a></li>
+				 <li><a href="#" title="">Новости</a></li>
+			 </ul>
+		 </div>
+		 <div class="footer_menu_resp">
+			 <p>Система</p>
+			 <ul>
+				 <li><a href="#" title="">Реклама</a></li>
+				 <li><a href="#" title="">Помощь</a></li>
+				 <li><a href="#" title="">Правила</a></li>
+			 </ul>
+		 </div>
+		 <div class="footer_menu_resp">
+			 <p>Новости</p>
+			 <ul>
+				 <li><a href="#" title="">Архив</a></li>
+				 <li><a href="#" title="">Новые</a></li>
+				 <li><a href="#" title="">Черный список</a></li>
+			 </ul>
+		 </div>
+		 <div class="footer_menu_resp">
+			 <p>Спецтехника</p>
+			 <ul>
+				 <li><a href="#" title="">Аренда</a></li>
+				 <li><a href="#" title="">Продажа</a></li>
+			 </ul>
+		 </div>
+		 <div class="footer_menu_resp">
+			 <p>Работа</p>
+			 <ul>
+				 <li><a href="#" title="">Вакансии</a></li>
+			 </ul>
+		 </div>
+		 <div class="footer_menu_resp">
+			 <p>Контакты</p>
+			 <ul>
+				 <li><a href="#" title="">Обратная связь</a></li>
+				 <li><a href="#" title="">Телефон</a></li>
+				 <li><a href="#" title="">Поддержка пользователей</a></li>
+			 </ul>
+		 </div>
+	 </div>
+	 
+</div>
+
+<div class="footer">
+	 <div class="center">
+		 <div class="footer_logo">
+			 <a href="/" title=""><img src="images/logo.png" alt=""/></a>
+		 </div>
+		 <div class="copir">
+			Все права защищены 2009-2015г <br />Любое копирование информации с сайта запрещено.
+		 </div>
+		 
+		 
+		 <div class="footer_right">
+			<div class="counter">
+				 
+			 </div>
+			 <div class="footer_tel">
+				 <span>Звоните нам</span>
+				 <p>+7 (351) 283 28 47</p>
+				 <p>+7 908 055 88 11</p>
+			 </div>
+			 
+			 
+		 </div>
+		 
+	 </div>
+</div>
+
+                                                                            
+
+</body>
+</html>

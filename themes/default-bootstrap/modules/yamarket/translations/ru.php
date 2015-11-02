@@ -1,0 +1,37 @@
+<?php
+
+global $_MODULE;
+$_MODULE = array();
+$_MODULE['<{yamarket}default-bootstrap>yamarket_71c3798b4d48400a12410183fc7b4170'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_d767c01ff429fef2b6837dbc0f5e4839'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_f4d1ea475eaa85102e2b4e6d95da84bd'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_f45d1ccef95c393b9488535a28ee5e3c'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_efa48384ee0cd25e761ebf7825f584d6'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_c919d65bd95698af8f15fa8133bf490d'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_2d4a359881e3b8628cc10e305f999027'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_d247415280087a305f9d3235e4165153'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_7c419f3ba376c2da3c3e115669e956a5'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_a7fd9bee17172ede11112e463b50d260'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_9ca195cf232754d225f8aefc1ab59d11'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_8271e2dfb9d65a40fde8c8f35b11f044'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_550e8a63632f89eac6bd4d8ab9398541'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_984bf1497dea9513aa66cf7b0e1eeb0e'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_5192a9c8f5fa228852613647d3a9bc61'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_c510eed4751f603355a308b38d4a399f'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_7b6a051cb1757c89cfd0d68d7c73fbb9'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_185d970568d24bb649101c894e6444e6'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_b973ee86903271172c9b4f5529bc19bb'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_dd0ae8cd369db78a76fbbbbe155e9562'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_8febaf3d09ee1f305198f383ce904153'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_7553b7508edc1b8ff7e2897ec8ede4fa'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_eeb1c69b4f08dff1a1924daecf9fab26'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_66d9174ae0a5b589fd2456f367764b2b'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_f3d7a810030d8ba8262f2255bf172120'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_1db090d5090f7c36492bafdf9ec3388c'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_56e10f20093e545ef4d6a63c15827701'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_dbe5444a9a2c431188f3f130d668c274'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_ba47a286f1073fea081857cb192a65d8'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_cbb49495ae1d9d0e09244eed31f51f23'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_a44ece7238a7540c8b3d3591859d45c8'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_691f5dd11566bfbea1af30fba5e079a1'] = '';
+$_MODULE['<{yamarket}default-bootstrap>yamarket_94c6300433c4694193aba2e8be192d4e'] = '';

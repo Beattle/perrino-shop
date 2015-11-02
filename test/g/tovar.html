@@ -1,0 +1,358 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Title</title>
+
+<!--БИБЛИОТЕКА-->
+<script src="js/jquery-2.1.3.js"></script> 
+
+<!-- Табы -->
+<script src="js/tabs/organictabs.jquery.js"></script>
+	
+<!--ЧЕКБОКСЫ-->
+<script type="text/javascript" src="js/select/custom_el.js"></script>
+<!--СКРОЛЛ-->
+<!-- <script type="text/javascript" src="js/scroll/jquery-1.11.1.min.js"></script> -->
+<script type="text/javascript" src="js/scroll/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="js/scroll/jquery.mousewheel.js"></script>
+
+<!-- Owl slider -->	
+<script src="js/jquery.ddslick.min.js"></script>
+<script src="js/owl/owl.carousel.js"></script>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	$("#tabs").organicTabs();
+
+	$("#slider").owlCarousel({  
+		autoPlay: 6000,
+		singleItem : true,
+		navigation:	true
+	  });
+
+	$("#slider_news").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1200,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	});
+
+	$("#slider_vid").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1200,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	  });
+
+	$("#slider_stat").owlCarousel({  
+		autoPlay: 6000,
+		navigation:	true,
+		items:	[4],
+		itemsDesktop:	[1200,3],
+		itemsDesktopSmall:	[1000,2],
+		itemsMobile:  [600,1]
+	});
+
+	$('#wrapper').jScrollPane();
+
+});
+</script>
+<script src="js/js.js"></script>
+
+
+
+</head>
+<body>
+<div class="over">
+	<div class="top">
+		 <div class="center">
+			 <a class="podarok" href="/">ПОЛУЧИТЕ <span>ПОДАРОК </span>СЕЙЧАС</a>
+			 
+			 <div class="top_right">
+				 <a class="mail" href="/">СВЯЖИТЕСЬ С НАМИ</a>
+				 <div class="sety">
+					 <a href="/" class="face" title=""><img src="images/f.png" alt=""/></a>
+					 <a href="/" class="you" title=""><img src="images/y.png" alt=""/></a>
+				 </div>
+				 <select id="lang">
+					<option value="eng" data-imagesrc="images/ru.gif"></option>
+					<option value="fr" data-imagesrc="images/ru2.gif"></option>
+					<option value="rus" data-imagesrc="images/ru3.gif"></option>
+				 </select> 
+			 </div>
+			 
+			 <div class="search">
+				 <a class="se_show" onclick='jQuery("#search_none").toggle()'><img src="images/se2.gif" alt=""/></a>
+				 <div id="search_none">
+					 <input class="search_form" type="text" value="ПОИСК ПО САЙТУ" onblur="if(this.value=='') this.value='ПОИСК ПО САЙТУ';" onfocus="if(this.value=='ПОИСК ПО САЙТУ') this.value='';">
+					 <input class="search_submit" type="submit" id="submit" value="" title=""/>
+				 </div>
+			 </div>
+		 </div>
+	</div>
+
+	<div class="header">
+		 <div class="center">
+			 <a class="logo" href="/"><img src="images/logo.png" alt=""/></a>
+			 
+			 <div class="menu">
+				 <a class="menu_show" onclick='jQuery("#show_menu").toggle()'></a>
+				 <ul id="show_menu">
+					 <li><a href="#" title="">НОВОСТИ</a>
+						 <ul>
+							 <li><a href="#" title="">НОВОСТИ</a></li>
+							 <li><a href="#" title="">СТАТЬИ</a></li>
+							 <li><a href="#" title="">ВИДЕО</a></li>
+						 </ul>
+					 </li>
+					 <li><a href="#" title="">G-ENERGY SERVICE</a></li>
+					 <li><a href="#" title="">ГДЕ КУПИТЬ</a></li>
+					 <li><a href="#" title="">ПОДБОР МАСЛА</a></li>
+					 <li><a href="#" title="">ПРОДУКЦИЯ</a></li>
+					 <li><a href="#" title="">О БРЕНДЕ</a>
+						 <ul>
+							 <li><a href="#" title="">О БРЕНДЕ</a></li>
+							 <li><a href="#" title="">ТЕХНОЛОГИЯ ACF</a></li>
+							 <li><a href="#" title="">ПРОИЗВОДСТВО</a></li>
+							 <li><a href="#" title="">КОНТАКТЫ</a></li>
+						 </ul>
+					 </li>
+				 </ul>
+			 </div>
+			 
+		 </div>
+	</div>
+
+
+
+	
+	 <div id="append" class="tovar_info">
+		 <div class="center center_padd">
+			<p>G-ENERGY RACING 15W-50</p> 
+			
+			<div class="tovar_info_cont">
+				<div class="tovar_img">
+					 <img src="images/cat.png" alt=""/>
+				 </div>
+				 <div class="tovar_info_text">
+					 <div>G-Energy F Synth EC 5W-30 – полностью синтетическое (Fully Synthetic) моторное масло, отвечающее требованиям Ford. Благодаря синтетической основе и пакету присадок, масло обеспечивает топливную экономичность, подходит для применения при низких температурах. 
+						 <br /><br />
+						 Класс вязкости: 10W-60, 15W-50, 20W-60
+					 </div> 
+					 <a href="#" title="">ЛИСТ ТЕХНИЧЕСКОГО ОПИСАНИЯ</a>
+					 <a href="#" title="">ЛИСТ ТЕХНИЧЕСКОГО ОПИСАНИЯ</a>
+				 </div>
+			 </div>
+		 </div>
+	 </div>
+	
+	<div class="center center_padd">
+	
+		<div class="left">
+			 <div class="menu_left menu_produkt">
+				 <a class="produkt_show" onclick='jQuery("#m_produkt").toggle()'>G-Energy Service Line</a>
+				 <ul id="m_produkt">
+					 <li><a href="#" title="">НОВОСТИ</a></li><li class="act">
+					 <a href="#" title="">СТАТЬИ</a></li>
+					 <li>
+					 <a href="#" title="">ВИДЕО</a>
+						 <ul>
+							 <li><a href="#" title="">11111</a></li>
+							 <li><a href="#" title="">11111</a></li>
+							 <li><a href="#" title="">11111</a></li>
+						 </ul>
+					 </li><li>
+					 <a href="#" title="">НОВОСТИ</a></li><li>
+					 <a href="#" title="">СТАТЬИ</a></li><li>
+					 <a href="#" title="">ВИДЕО</a></li><li>
+					 <a href="#" title="">НОВОСТИ</a></li><li>
+					 <a href="#" title="">СТАТЬИ</a></li><li>
+					 <a href="#" title="">ВИДЕО</a></li><li>
+					 <a href="#" title="">НОВОСТИ</a></li><li>
+					 <a href="#" title="">СТАТЬИ</a></li>
+				 </ul>
+			 </div>
+			 
+			 
+			 <div class="banner">
+				<a href="/" title=""><img src="images/banner.gif" alt=""/></a>
+			 </div>
+		</div>
+		
+		<div class="right">
+		
+			 <div class="shops">
+				 <div class="shops_text">
+					 <p>Найдите магазин рядом с вами. <b>Москва:</b> торговых точек <b>148</b></p>
+				 </div>
+			 </div>
+			 
+			 <div class="fasovka_border">
+				 <div class="fasovka">
+					 <div class="fasovka_title">
+						 Варианты фасовки
+					 </div>
+					 <div class="fasovka_bl">
+						 <img src="images/fasovka_1.gif" alt=""/>
+						 <p>400 МЛ</p>
+					 </div><div class="fasovka_bl">
+						 <img src="images/fasovka_2.gif" alt=""/>
+						 <p>1 литр</p>
+					 </div><div class="fasovka_bl">
+						 <img src="images/fasovka_3.gif" alt=""/>
+						 <p>4 литра</p>
+					 </div><div class="fasovka_bl">
+						 <img src="images/fasovka_4.gif" alt=""/>
+						 <p>20 литров</p>
+					 </div><div class="fasovka_bl">
+						 <img src="images/fasovka_5.gif" alt=""/>
+						 <p>216 литров</p>
+					 </div>
+				 </div>
+			 </div>
+			 
+			 <div class="text">
+				 <p><span style="font-size: 30px;color: #e95f0e;">НАЗНАЧЕНИЕ И ОПИСАНИЕ</span></p>
+				 
+				 <p>
+					G-Energy Racing 10W-60, 15W-50, 20W-60 – 100% синтетические моторные масла, специально разработанное для профессионального гоночного использования. Благодаря специально подобранному составу базовых масел (полиальфаолефины (PAO) и сложной комбинации различных основ сложных эфиров, РОЕ)), обеспечивается высочайшая прочность масляной пленки на разрыв, что максимально защищает детали двигателя от износа. Вязкостные характеристики сохраняются на протяжении всего периода эксплуатации, даже под воздействием высоких температур, нагрузок и большого количество продуктов неполного сгорания топлива, попадающих в масло в процессе гонки. Обладают стойкостью к окислению.
+					<br /><br />
+					Наличие в составе модификатора трения позволяет снизить затраты энергии на трение в двигателе, обеспечивая высвобождение дополнительной мощности во всем диапазоне нагрузок.
+					<br /><br />
+					Масла G-Energy Racing прошли испытания c положительным результатом в условиях ралли-рейдов в двигателях GM.
+				 </p>
+				 
+				 <hr />
+				 
+				 <p><span style="font-size: 30px;color: #e95f0e;">ПРЕИМУЩЕСТВА</span></p>
+				 <br />
+				 <ul>
+					<li>повышают КПД двигателя за счёт уникальных фрикционных характеристик, снижающих коэффициент трения;</li>
+					<li>гарантированно защищают двигатель от износа в экстремальных условиях (при высоких температурах, нагрузках и в присутствии продуктов неполного сгорания топлива);</li>
+					<li>обеспечивают стабильное давление  в системе смазки двигателя и минимальный расход масла на угар благодаря низкому уровню испаряемости даже при значительном повышении рабочей температуры;</li>
+					<li>обеспечивают хорошие низкотемпературные свойства (температура застывания -42 °С)</li>
+					<li>повышают КПД двигателя за счёт уникальных фрикционных характеристик, снижающих коэффициент трения;</li>
+					<li>гарантированно защищают двигатель от износа в экстремальных условиях (при высоких температурах, нагрузках и в присутствии продуктов неполного сгорания топлива);</li>
+					<li>обеспечивают стабильное давление  в системе смазки двигателя и минимальный расход масла на угар благодаря низкому уровню испаряемости даже при значительном повышении рабочей температуры;</li>
+					<li>обеспечивают хорошие низкотемпературные свойства (температура застывания -42 °С)</li>
+				 </ul>
+				 
+				 <hr />
+				 
+			 </div>
+
+			 <p><span style="font-size: 30px;color: #e95f0e;">ДРУГАЯ ПРОДУКЦИЯ ИЗ ЛИНЕЙКИ</span></p>
+			<div class="produkt">
+				 
+				 <div class="produkt_bl">
+					 <div class="produkt_img">
+						<img src="images/cat.png" alt=""/>
+					 </div>
+					 <div class="produkt_text">
+						<h3><span style="color:#e95f0e">G-ENERGY</span> F SYNTH 0W-40</h3>
+						масло моторное всесезонное
+						<p>Масло производится на полностью синтетической основе и специально подобранном пакете присадок. Обеспечивает надёжную работу и защиту двигателя при любых условиях эксплуатации, как при магистральном, так и при городском цикле.</p>
+						<a href="#" title="">ПОДРОБНЕЕ</a>
+					 </div>
+				 </div><div class="produkt_bl">
+					 <div class="produkt_img">
+						<img src="images/cat.png" alt=""/>
+					 </div>
+					 <div class="produkt_text">
+						<h3><span style="color:#e95f0e">G-ENERGY</span> F SYNTH 0W-40</h3>
+						масло моторное всесезонное
+						<p>Масло производится на полностью синтетической основе и специально подобранном пакете присадок</p>
+						<a href="#" title="">ПОДРОБНЕЕ</a>
+					 </div>
+				 </div><div class="produkt_bl">
+					 <div class="produkt_img">
+						<img src="images/cat.png" alt=""/>
+					 </div>
+					 <div class="produkt_text">
+						<h3><span style="color:#e95f0e">G-ENERGY</span> F SYNTH 0W-40</h3>
+						масло моторное всесезонное
+						<p>Масло производится на полностью синтетической основе и специально подобранном пакете присадок. Обеспечивает надёжную работу и защиту двигателя при любых условиях эксплуатации, как при магистральном, так и при городском цикле.</p>
+						<a href="#" title="">ПОДРОБНЕЕ</a>
+					 </div>
+				 </div>
+				 
+				 <div class="produkt_all">
+					<a href="#" title="">Вся продукция G-Energy Racing</a>
+				 </div>
+				 
+			</div>
+			
+			
+		</div>
+		
+	</div>
+
+
+
+	<div class="footer">
+		<div class="center">
+			 <div class="footer1">
+				 <div class="gp">
+					 <a href="/" title=""><img src="images/gp.png" alt=""/></a>
+				 </div>
+				 <div class="logos">
+					 <a href="/" title=""><img src="images/foot_l.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_l2.png" alt=""/></a>
+				 </div>
+				 <div class="sety_foot">
+					 <p><a href="/" title=""><img src="images/foot_f2.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_y.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_m.png" alt=""/></a>
+					 </p>
+				 </div>
+			 </div>
+			 
+			 <div class="footer2">
+				 <div class="like">
+					 <span>МНЕ НРАВИТСЯ</span>
+					 <a href="/" title=""><img src="images/foot_f.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_v.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_t.png" alt=""/></a>
+				 </div>
+				 <div class="like">
+					 <span>ПОДЕЛИТЬСЯ</span>
+					 <a href="/" title=""><img src="images/foot_f.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_v.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_o.png" alt=""/></a>
+					 <a href="/" title=""><img src="images/foot_t.png" alt=""/></a>
+				 </div>
+			 </div>
+			 
+			 <div class="footer3">
+				 <div class="copir">
+					 © 2009–2014, «Газпромнефть - смазочные материалы», <a href="#" title="">Контакты</a>
+				 </div>
+				 <div class="razrab">
+					 Создание сайта – <a href="#" title="">«Энсайн»</a>
+				 </div>
+				 <div class="menu_foot">
+					 <p>
+						<a class="act" href="#" title="">РУССКИЙ</a>|
+						 <a href="#" title="">ENGLISH</a>|
+						 <a href="#" title="">ITALIAN</a>|
+						 <a href="#" title="">СРПСКИ</a>
+					 </p>
+				 </div>
+			 </div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>
