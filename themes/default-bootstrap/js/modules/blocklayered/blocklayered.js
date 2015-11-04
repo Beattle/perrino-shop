@@ -757,9 +757,61 @@ function utf8_decode (utfstr)
 function find_attributes(list){
     var els = list.children('li');
     var k = els.length;
+    var prod_attr_array = {hardness:[],height:[],weight:[]};
+    var filter = { hardness:[],height:[],weight:[]};
+    var diff = {hardness:[],height:[],weight:[]};
     for(var i=0;i<k;i++){
         var attrs = $(els[i]).find('.cat_info');
-        console.log(attrs);
+        if(prod_attr_array.hardness.indexOf(attrs.find('.hardness').data('hard_value')) == -1)
+            prod_attr_array['hardness'].push(attrs.find('.hardness').data('hard_value'));
+        if(prod_attr_array.height.indexOf(parseFloat(attrs.find('.height span').text())) == -1)
+            prod_attr_array['height'].push(parseFloat(attrs.find('.height span').text()));
+        if(prod_attr_array.weight.indexOf(parseFloat(attrs.find('.ves span').text())) == -1)
+            prod_attr_array['weight'].push(parseFloat(attrs.find('.ves span').text()));
     }
+
+    $.map($('#ul_layered_id_feature_5').find('select option'), function(option) {
+        if(option.value.length > 0){
+            filter.weight.push(parseFloat(option.text.replace(',', '.')))
+        }
+    });
+    $.map($('#ul_layered_id_feature_12').find('select option'),function(option){
+       if(option.value.length > 0 ){
+           filter.height.push(parseFloat(option.text.replace(',', '.')));
+       }
+    });
+    $.map($('#ul_layered_id_feature_7').find('select option'),function(option){
+        if(option.value.length > 0 ){
+            filter.hardness.push(option.value);
+        }
+    });
+
+    diff.height = $(filter.height).not(prod_attr_array.height).get();
+/*    diff.weight = $(filter.weight).not(prod_attr_array.weight).get();
+    diff.hardness = $(filter.hardness).not(prod_attr_array.hardness).get();*/
+    console.log(diff);
+    // console.log(prod_attr_array.height);
+    // console.log(filter.height);
 }
+
+var indexOf = function(needle) {
+    if(typeof Array.prototype.indexOf === 'function') {
+        indexOf = Array.prototype.indexOf;
+    } else {
+        indexOf = function(needle) {
+            var i = -1, index = -1;
+
+            for(i = 0; i < this.length; i++) {
+                if(this[i] === needle) {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
+        };
+    }
+
+    return indexOf.call(this, needle);
+};
 

@@ -220,9 +220,13 @@
         {if isset($product.features) && $product.features}
             <!-- Data sheet Вывод характеристик features - особенности рабочий вариант-->
             {*Присваиваю значения массиву выводимых в категории характеристик*}
+            {assign var="id_feature" value=""}
+            {assign var="value_feature" value=""}
             {section name=featuresitem loop=$product.features}
                 {if $product.features[featuresitem].name == "Жёсткость" || $product.features[featuresitem].name == "Жёсткость наматрасника" || $product.features[featuresitem].name == "Жёсткость подушки"}
                     {assign var=hardnessTitle value="Жёсткость"}
+                    {*$id_feature=$product.features[featuresitem].id_feature*}
+                    {*$value_feature=$product.features[featuresitem].value*}
 
                     {if isset($product.features[featuresitem].value) && $product.features[featuresitem].value}
                         {assign var=hardness value=$product.features[featuresitem].value}
@@ -243,9 +247,11 @@
                 {else}
                     {if $product.features[featuresitem].name == "Высота матраса" || $product.features[featuresitem].name == "Высота подушки" || $product.features[featuresitem].name == "Высота наматрасника" || $product.features[featuresitem].name == "Высота кровати"}
                         {assign var=heightTitle value="Высота"}
+                        {assign var=$id_feature value=$product.features[featuresitem].id_feature}
+                        {assign var=$value_feature value=$product.features[featuresitem].value}
 
                         {if isset($product.features[featuresitem].value) && $product.features[featuresitem].value}
-                            {assign var=height value=$product.features[featuresitem].value|ceil}
+                            {assign var=height value=$product.features[featuresitem].value|replace:',':'.'|floatval}
                             {assign var=heightFlag value=1}
                         {else}
                             {assign var=height value="-"}
@@ -254,6 +260,8 @@
                     {else}
                         {if $product.features[featuresitem].name == "Макс. вес на место"}
                             {assign var=vesTitle value="Вес"}
+                            {$id_feature=$product.features[featuresitem].id_feature}
+                            {$value_feature=$product.features[featuresitem].value}
 
                             {if isset($product.features[featuresitem].value) && $product.features[featuresitem].value}
                                 {assign var=ves value=$product.features[featuresitem].value|ceil}
@@ -265,6 +273,8 @@
                         {else}
                             {if $product.features[featuresitem].name == "Жёсткость второй стороны"}
                                 {assign var=hardnessDopTitle value=$product.features[featuresitem].name}
+                                {$id_feature=$product.features[featuresitem].id_feature}
+                                {$value_feature=$product.features[featuresitem].value}
 
                                 {if isset($product.features[featuresitem].value) && $product.features[featuresitem].value}
                                     {assign var=hardnessDop value=$product.features[featuresitem].value}
@@ -284,11 +294,14 @@
                                 {/if}
                             {else}
                                 {if $product.features[featuresitem].name == "Размер подушки"}
+                                    {$id_feature=$product.features[featuresitem].id_feature}
+                                    {$value_feature=$product.features[featuresitem].value}
 
 
                                     {assign var=pxpPodushkiTitle value="Размер"}
 
                                     {if isset($product.features[featuresitem].value) && $product.features[featuresitem].value}
+
                                         {assign var=pxpPodushki value=$product.features[featuresitem].value}
                                     {else}
                                         {assign var=pxpPodushki value="-"}
@@ -297,9 +310,9 @@
 
                                 {else}
                                     {if $product.features[featuresitem].name == "Материал"}
-
-
                                         {assign var=materialTitle value=$product.features[featuresitem].name}
+                                        {$id_feature=$product.features[featuresitem].id_feature}
+                                        {$value_feature=$product.features[featuresitem].value}
 
                                         {if isset($product.features[featuresitem].value) && $product.features[featuresitem].value}
                                             {assign var=material value=$product.features[featuresitem].value}
@@ -331,9 +344,9 @@
             <div itemprop="description" class="cat_info">
                 {*Вывожу характеристику всех товаров кроме подушки*}
                 {if isset($hardnessTitle) && $hardnessTitle}
-                    <div data-feature_value="{$product.features.value}" data-id_feature="{$product.features.id_feature}" class="catFeater">
+                    <div class="catFeater">
                         <span>{$hardnessTitle}</span>
-                        <div class="hardness">
+                        <div class="hardness" data-hard_value="{if $hardnessSoft == 1}19_7{elseif $hardnessSoft == 2}18_7{else}17_7{/if}">
                             {if $hardnessSoft == 1}<!-- Жёсткий -->
                             <span class="hardnessRed"></span>
                             <span class="hardnessRed"></span>
@@ -379,7 +392,7 @@
                 {/if}
 
                 {if isset($heightTitle) && $heightTitle}
-                    <div data-feature_value="{$product.features.value}" data-id_feature="{$product.features.id_feature}" class="catFeater">
+                    <div  class="catFeater">
                         <span>{$heightTitle}</span>
                         <div class="height">
                             {if $heightFlag == 1}
@@ -394,7 +407,7 @@
                     {$heightFlag = null}
                 {/if}
                 {if isset($vesTitle) && $vesTitle}
-                    <div data-feature_value="{$product.features.value}" data-id_feature="{$product.features.id_feature}" class="catFeater1">
+                    <div class="catFeater1">
                         <span>{$vesTitle}</span>
                         <div class="ves">
                             {if $vesFlag == 1}
