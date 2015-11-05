@@ -553,11 +553,11 @@ function reloadContent(params_plus)
 				$('div.clearfix.selector1').hide();
 
 			if (result.productList){
-
-             var list =  $('.product_list').replaceWith(utf8_decode(result.productList));
+                find_attributes($(result.productList));
+             $('.product_list').replaceWith(utf8_decode(result.productList));
                 if (typeof getcurrentcombs == 'function') getcurrentcombs();
                 if(typeof getcomb == 'function'){getcomb()}
-                find_attributes(list)
+
 
             }
 
@@ -759,7 +759,10 @@ function find_attributes(list){
     var k = els.length;
     var prod_attr_array = {hardness:[],height:[],weight:[]};
     var filter = { hardness:[],height:[],weight:[]};
-    var diff = {hardness:[],height:[],weight:[]};
+//     var diff = {hardness:[],height:[],weight:[]};
+    var weightArr = $('#ul_layered_id_feature_5').find('select option');
+    var heightArr = $('#ul_layered_id_feature_12').find('select option');
+    var hardnessArr = $('#ul_layered_id_feature_7').find('select option');
     for(var i=0;i<k;i++){
         var attrs = $(els[i]).find('.cat_info');
         if(prod_attr_array.hardness.indexOf(attrs.find('.hardness').data('hard_value')) == -1)
@@ -770,28 +773,49 @@ function find_attributes(list){
             prod_attr_array['weight'].push(parseFloat(attrs.find('.ves span').text()));
     }
 
-    $.map($('#ul_layered_id_feature_5').find('select option'), function(option) {
-        if(option.value.length > 0){
-            filter.weight.push(parseFloat(option.text.replace(',', '.')))
-        }
-    });
-    $.map($('#ul_layered_id_feature_12').find('select option'),function(option){
-       if(option.value.length > 0 ){
-           filter.height.push(parseFloat(option.text.replace(',', '.')));
-       }
-    });
-    $.map($('#ul_layered_id_feature_7').find('select option'),function(option){
-        if(option.value.length > 0 ){
-            filter.hardness.push(option.value);
-        }
-    });
+    cycleArr(weightArr,filter,'weight');
+    cycleArr(heightArr,filter,'height');
+    cycleArr(hardnessArr,filter,'hardness');
 
-    diff.height = $(filter.height).not(prod_attr_array.height).get();
-/*    diff.weight = $(filter.weight).not(prod_attr_array.weight).get();
-    diff.hardness = $(filter.hardness).not(prod_attr_array.hardness).get();*/
-    console.log(diff);
-    // console.log(prod_attr_array.height);
-    // console.log(filter.height);
+
+    filter.height = $(filter.height).not(prod_attr_array.height).get();
+    filter.weight = $(filter.weight).not(prod_attr_array.weight).get();
+    filter.hardness = $(filter.hardness).not(prod_attr_array.hardness).get();
+
+
+
+    cycleArr(weightArr,filter,'weight',true);
+
+}
+
+function cycleArr(arr,filter,property,disable){
+    if(typeof disable === "undefined"){
+        switch (property){
+            case 'height':
+            case 'weight':
+                $.map(arr, function(option) {
+                    if(option.value.length > 0){
+                        filter[property].push(parseFloat(option.text.replace(',', '.')))
+                    }
+                });
+                break;
+            case 'hardness':
+                $.map(arr,function(option){
+                    if(option.value.length > 0 ){
+                        filter[property].push(option.value);
+                    }
+                });
+        }
+    }else{
+        $.map(arr,function(){
+            if(arr.in_array($(this))){
+
+            }
+        })
+    }
+
+
+
 }
 
 var indexOf = function(needle) {
@@ -815,3 +839,11 @@ var indexOf = function(needle) {
     return indexOf.call(this, needle);
 };
 
+    Array.prototype.in_array = function(p_val) {
+        for(var i = 0, l = this.length; i < l; i++)	{
+            if(this[i] == p_val) {
+                return true;
+            }
+        }
+        return false;
+    };
