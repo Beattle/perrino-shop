@@ -785,11 +785,13 @@ function find_attributes(list){
 
 
     cycleArr(weightArr,filter,'weight',true);
+    cycleArr(heightArr,filter,'height',true);
+    cycleArr(hardnessArr,filter,'hardness',true);
 
 }
 
-function cycleArr(arr,filter,property,disable){
-    if(typeof disable === "undefined"){
+function cycleArr(arr,filter,property,check_disable){
+    if(typeof check_disable === "undefined"){
         switch (property){
             case 'height':
             case 'weight':
@@ -807,11 +809,28 @@ function cycleArr(arr,filter,property,disable){
                 });
         }
     }else{
-        $.map(arr,function(){
-            if(arr.in_array($(this))){
+        switch (property){
+            case 'height':
+            case 'weight':
+                $.map(arr,function(option){
+                    if(filter[property].in_array(parseFloat(option.text.replace(',', '.')))){
+                        $(option).prop('disabled',true);
+                    }else{
+                        $(option).prop('disabled',false);
+                    }
+                });
+                break;
+            case 'hardness':
+                $.map(arr,function(option){
+                    if(filter[property].in_array(option.value)){
+                        $(option).prop('disabled',true);
+                    }else{
+                        $(option).prop('disabled',false);
+                    }
+                });
+                break;
+        }
 
-            }
-        })
     }
 
 
