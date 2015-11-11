@@ -223,6 +223,9 @@
             {assign var="id_feature" value=""}
             {assign var="value_feature" value=""}
             {section name=featuresitem loop=$product.features}
+                {if $product.features[featuresitem].name === "Тип пружин"}
+                    {assign var="typeSpring" value=$product.features[featuresitem].value}
+                {/if}
                 {if $product.features[featuresitem].name == "Жёсткость" || $product.features[featuresitem].name == "Жёсткость наматрасника" || $product.features[featuresitem].name == "Жёсткость подушки"}
                     {assign var=hardnessTitle value="Жёсткость"}
                     {*$id_feature=$product.features[featuresitem].id_feature*}
@@ -420,6 +423,9 @@
                     {$vesTitle = null}
                     {$ves = null}
                     {$vesFlag = null}
+                {/if}
+                {if isset($typeSpring) && $typeSpring}
+                <input class="typeSping" type="hidden" value="{$typeSpring}" />
                 {/if}
             </div><!-- cat_info -->
         {/if}

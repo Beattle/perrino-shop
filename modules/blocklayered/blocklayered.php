@@ -1698,8 +1698,8 @@ class BlockLayered extends Module
 	{
 		$home_category = Configuration::get('PS_HOME_CATEGORY');
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', $home_category));
-		if ($id_parent == $home_category)
-			return;
+/*		if ($id_parent == $home_category)
+			return;*/
 
 		// Force attributes selection (by url '.../2-mycategory/color-blue' or by get parameter 'selected_filters')
 		if (strpos($_SERVER['SCRIPT_FILENAME'], 'blocklayered-ajax.php') === false || Tools::getValue('selected_filters') !== false)
@@ -1796,8 +1796,8 @@ class BlockLayered extends Module
 		$home_category = Configuration::get('PS_HOME_CATEGORY');
 		/* If the current category isn't defined or if it's homepage, we have nothing to display */
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', $home_category));
-		if ($id_parent == $home_category)
-			return false;
+		/*if ($id_parent == $home_category)
+			return false;*/
 
 		$alias_where = 'p';
 		if (version_compare(_PS_VERSION_,'1.5','>'))
@@ -2043,8 +2043,8 @@ class BlockLayered extends Module
 
 		$home_category = Configuration::get('PS_HOME_CATEGORY');
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', $home_category));
-		if ($id_parent == $home_category)
-			return;
+/*		if ($id_parent == $home_category)
+			return;*/
 
 		$parent = new Category((int)$id_parent, $id_lang);
 

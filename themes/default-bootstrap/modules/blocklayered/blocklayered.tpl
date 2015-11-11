@@ -185,7 +185,7 @@
 								<span class="hide-action less">{l s='Show less' mod='blocklayered'}</span>
 							{/if}
 						</div>
-						<div class="clearBotch"></div>
+						<div class="clearBotch 1"></div>
 					</div>
 					{/if}
 				{/foreach}

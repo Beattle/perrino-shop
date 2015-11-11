@@ -23,13 +23,8 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 {include file="$tpl_dir./errors.tpl"}
-{*foreach from=$groups key=id_attribute_group item=group}
-{/foreach*}
-				{*if isset($groups)}
-					{$groups}
-				{else}
-					<div>{l s='Не Выловлен атрибут!'}</div>	
-				{/if*}
+
+
 {if isset($category)}
 	{if $category->id AND $category->active}
 		{if isset($subcategories)}
@@ -56,8 +51,8 @@
 			</ul>
 		</div>
         {/if}
+            <ul {if isset($id_category) && $id_category} id="{$id_category}"{/if} class="product_list"></ul>
 		{/if}
-		
 		{if $products}
             <div  class="content_sortPagiBar clearfix">
                 <div class="sortPagiBar clearfix">
@@ -79,10 +74,6 @@
    	{$category->description}
   </div>
   {/if}
-  
-  <div class="hook_hit">
-        	{$HOOK_HIT}
-    	</div>
   
 	{elseif $category->id}
 		<p class="alert alert-warning">{l s='This category is currently unavailable.'}</p>

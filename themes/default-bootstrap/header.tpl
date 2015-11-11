@@ -42,6 +42,10 @@
 	<script type="text/javascript" src="{$js_uri|escape:'html':'UTF-8'}"></script>
 	{/foreach}
 <!--    <script type="text/javascript" src="{$base_dir}/themes/default-bootstrap/js/autotat/commun.js"></script> -->
+	{if $page_name =='index' && $page_name }						
+		<script type="text/javascript" src="{$base_dir}themes/default-bootstrap/js/modules/blocklayered/blocklayered.js"></script>
+        <link rel="stylesheet" href="{$base_dir}themes/default-bootstrap/css/modules/blocklayered/blocklayered.css">
+	{/if}
 {/if}
 		{*$HOOK_HEADER*}
 		<link rel="stylesheet" href="http{if Tools::usingSecureMode()}s{/if}://fonts.googleapis.com/css?family=Open+Sans:300,600&amp;subset=latin,latin-ext" type="text/css" media="all" />
@@ -83,7 +87,9 @@
 <div class="center">
 	 <div class="content">	 
 	 	<div class="left">
-
+	{if $page_name =='index' && $page_name }						
+		{include file="$tpl_dir./html-layered.tpl"}
+	{/if}
 
 			 
 			 {if isset($HOOK_LEFT_COLUMN) && $HOOK_LEFT_COLUMN}
@@ -96,6 +102,9 @@
 		 </div><!-- left -->
 		 <div class="right_respons">
 		 <div class="right">
+             {if $page_name =='index' && $page_name }
+                 <ul class="product_list" id="3"></ul>
+             {/if}
 		 {if $page_name !='index' && $page_name !='pagenotfound'}
 						{include file="$tpl_dir./breadcrumb.tpl"}
 					{/if}

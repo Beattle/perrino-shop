@@ -24,7 +24,7 @@
                 <input type="hidden" name="controller" value="search" />
                 <input type="hidden" name="orderby" value="position" />
                 <input type="hidden" name="orderway" value="desc" />
-                <input id="search_query_block" value="{$search_query|escape:'html':'UTF-8'|stripslashes}" type="text" name="search_query"  placeholder="Поиск" onfocus="$(this).attr('placeholder', '')" onblur="$(this).attr('placeholder', 'Поиск')" />
+                <input id="search_query_block" value="{if isset($search_query) && $search_query}{$search_query|escape:'html':'UTF-8'|stripslashes}{/if}" type="text" name="search_query"  placeholder="Поиск" onfocus="$(this).attr('placeholder', '')" onblur="$(this).attr('placeholder', 'Поиск')" />
 			    <input  id="search_button" class="submit button_mini" type="submit" value="" title=""/>
             </form>
 		 </div>

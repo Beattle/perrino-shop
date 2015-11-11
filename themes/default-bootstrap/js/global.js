@@ -54,14 +54,7 @@ if (jQuery("#slider")!=undefined)//Слайдер homeslider.js
  	}
 }
 
-if (jQuery("#subcategories")!=undefined)//Скрываем товары в родительской категории, а так же хиты продаж в дочерних категориях
-{	
-	if (jQuery("#subcategories").length>0)//Если есть подкатегори
-	{		
-		 jQuery('.product_list').css('display', 'none');
-		 jQuery('.hook_hit').css('display', 'block');		  
-	 }
-}
+
 
 //Кнопка подробнее и др. ссылки
 jQuery(".zakaz").click(function()

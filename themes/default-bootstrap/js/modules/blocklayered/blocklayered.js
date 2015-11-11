@@ -757,12 +757,13 @@ function utf8_decode (utfstr)
 function find_attributes(list){
     var els = list.children('li');
     var k = els.length;
-    var prod_attr_array = {hardness:[],height:[],weight:[]};
-    var filter = { hardness:[],height:[],weight:[]};
+    var prod_attr_array = {hardness:[],height:[],weight:[],typeSpring:[]};
+    var filter = { hardness:[],height:[],weight:[],typeSpring:[]};
 //     var diff = {hardness:[],height:[],weight:[]};
     var weightArr = $('#ul_layered_id_feature_5').find('select option');
     var heightArr = $('#ul_layered_id_feature_12').find('select option');
     var hardnessArr = $('#ul_layered_id_feature_7').find('select option');
+    var typeSpring = $('#ul_layered_id_feature_9').find('select option');
     for(var i=0;i<k;i++){
         var attrs = $(els[i]).find('.cat_info');
         if(prod_attr_array.hardness.indexOf(attrs.find('.hardness').data('hard_value')) == -1)
@@ -771,22 +772,27 @@ function find_attributes(list){
             prod_attr_array['height'].push(parseFloat(attrs.find('.height span').text()));
         if(prod_attr_array.weight.indexOf(parseFloat(attrs.find('.ves span').text())) == -1)
             prod_attr_array['weight'].push(parseFloat(attrs.find('.ves span').text()));
+        if(prod_attr_array.typeSpring.indexOf(attrs.find('.hardness').data('hard_value')) == -1)
+            prod_attr_array['typeSpring'].push(attrs.find('.typeSpring').val());
     }
 
     cycleArr(weightArr,filter,'weight');
     cycleArr(heightArr,filter,'height');
     cycleArr(hardnessArr,filter,'hardness');
+    cycleArr(typeSpring,filter,'typeSpring');
 
 
     filter.height = $(filter.height).not(prod_attr_array.height).get();
     filter.weight = $(filter.weight).not(prod_attr_array.weight).get();
     filter.hardness = $(filter.hardness).not(prod_attr_array.hardness).get();
+    filter.typeSpring = $(filter.typeSpring).not(prod_attr_array.typeSpring).get();
 
 
 
     cycleArr(weightArr,filter,'weight',true);
     cycleArr(heightArr,filter,'height',true);
     cycleArr(hardnessArr,filter,'hardness',true);
+    cycleArr(typeSpring,filter,'typeSpring',true);
 
 }
 
@@ -802,6 +808,7 @@ function cycleArr(arr,filter,property,check_disable){
                 });
                 break;
             case 'hardness':
+            case 'typeSpring':
                 $.map(arr,function(option){
                     if(option.value.length > 0 ){
                         filter[property].push(option.value);
@@ -821,6 +828,7 @@ function cycleArr(arr,filter,property,check_disable){
                 });
                 break;
             case 'hardness':
+            case 'typeSpring':
                 $.map(arr,function(option){
                     if(filter[property].in_array(option.value)){
                         $(option).prop('disabled',true);
