@@ -552,13 +552,24 @@ function reloadContent(params_plus)
 			if (result.nbRenderedProducts == result.nbAskedProducts)
 				$('div.clearfix.selector1').hide();
 
+            if ($('body#index').length){
+                $('.mainkat_cont, #slider').hide();
+            }
+            if(result.filters){
+                assignFilters(result.filters)
+            }
+            if(result.combinations){
+                if(typeof allcombinations === 'undefined'){
+                    allcombinations = result.combinations;
+                }
+            }
+
+
 			if (result.productList){
-                find_attributes($(result.productList));
+
              $('.product_list').replaceWith(utf8_decode(result.productList));
                 if (typeof getcurrentcombs == 'function') getcurrentcombs();
                 if(typeof getcomb == 'function'){getcomb()}
-
-
             }
 
 			else{
@@ -754,7 +765,77 @@ function utf8_decode (utfstr)
 	return res;
 }
 
-function find_attributes(list){
+function assignFilters(filters){
+    for (var key in filters) {
+        if (filters.hasOwnProperty(key)) {
+            var id_key = filters[key].id_key;
+            var spec_droplist = $('#ul_layered_id_feature_'+ id_key + ' select');
+            var values = filters[key].values;
+            var options = spec_droplist.find('option');
+            if(spec_droplist.val() !== "" && !spec_droplist.hasClass('selected')){ // only select with  chosen value
+                spec_droplist.addClass('selected');
+                for (var val_key in  values  ){
+                    if(values.hasOwnProperty(val_key)){
+                       var fOption = values[val_key];
+                       var fValue = val_key+'_'+id_key;
+                       if(fOption.checked === true){
+                           for (var i = 0, l = options.length; i < l; i++) {
+                               var selOption = $(options[i]);
+                               if(selOption.val()!==""){
+                                   selOption.prop('disabled',selOption.val() !== fValue);
+                               }
+                           }
+                       }
+                    }
+                }
+            } else if(spec_droplist.hasClass('selected') && spec_droplist.val() ===""){
+                for(i=0,l=options.length;i<l;i++){
+                    for (i = 0, l = options.length; i < l; i++) {
+                        var disabled = true;
+                        if(options[i].value !==""){
+                            for(val_key in values){
+                                fValue = val_key+'_'+id_key;
+                                if(options[i].value == fValue){
+                                    disabled = false;
+                                    break;
+                                }
+                            }
+                            options[i].disabled = disabled;
+                        }
+                    }
+                }
+                spec_droplist.removeClass('selected');
+            } else if (spec_droplist.val() === "" && !spec_droplist.hasClass('selected')) {
+
+                for (i = 0, l = options.length; i < l; i++) {
+                      disabled = true;
+                      if(options[i].value !==""){
+                          for(val_key in values){
+                              fValue = val_key+'_'+id_key;
+                              if(options[i].value == fValue){
+                                  disabled = false;
+                                  break;
+                              }
+                          }
+                          options[i].disabled = disabled;
+                      }
+                }
+
+            }
+        }
+    }
+}
+
+Array.prototype.in_array = function(p_val) {
+    for(var i = 0, l = this.length; i < l; i++)	{
+        if(this[i] == p_val) {
+            return true;
+        }
+    }
+    return false;
+};
+
+/*function find_attributes(list){
     var els = list.children('li');
     var k = els.length;
     var prod_attr_array = {hardness:[],height:[],weight:[],typeSpring:[]};
@@ -772,8 +853,8 @@ function find_attributes(list){
             prod_attr_array['height'].push(parseFloat(attrs.find('.height span').text()));
         if(prod_attr_array.weight.indexOf(parseFloat(attrs.find('.ves span').text())) == -1)
             prod_attr_array['weight'].push(parseFloat(attrs.find('.ves span').text()));
-        if(prod_attr_array.typeSpring.indexOf(attrs.find('.hardness').data('hard_value')) == -1)
-            prod_attr_array['typeSpring'].push(attrs.find('.typeSpring').val());
+        if(prod_attr_array.typeSpring.indexOf(attrs.find('.typeSpring').val()) == -1)
+            prod_attr_array['typeSpring'].push(attrs.find('.typeSpring').val().toString());
     }
 
     cycleArr(weightArr,filter,'weight');
@@ -794,9 +875,9 @@ function find_attributes(list){
     cycleArr(hardnessArr,filter,'hardness',true);
     cycleArr(typeSpring,filter,'typeSpring',true);
 
-}
+}*/
 
-function cycleArr(arr,filter,property,check_disable){
+/*function cycleArr(arr,filter,property,check_disable){
     if(typeof check_disable === "undefined"){
         switch (property){
             case 'height':
@@ -808,13 +889,20 @@ function cycleArr(arr,filter,property,check_disable){
                 });
                 break;
             case 'hardness':
-            case 'typeSpring':
                 $.map(arr,function(option){
                     if(option.value.length > 0 ){
                         filter[property].push(option.value);
                     }
                 });
-        }
+                break;
+            case 'typeSpring':
+                $.map(arr,function(option){
+                    if(option.value.length > 0 ){
+                        filter[property].push(option.text.toString());
+                    }
+                });
+                break;
+    }
     }else{
         switch (property){
             case 'height':
@@ -828,9 +916,19 @@ function cycleArr(arr,filter,property,check_disable){
                 });
                 break;
             case 'hardness':
-            case 'typeSpring':
                 $.map(arr,function(option){
                     if(filter[property].in_array(option.value)){
+                        $(option).prop('disabled',true);
+                    }else{
+                        $(option).prop('disabled',false);
+                    }
+                });
+                break;
+            case 'typeSpring':
+                $.map(arr,function(option,i){
+                    if(filter[property].in_array(option.text.toString())){
+                        console.log(var_dump(option.text));
+                        console.log(var_dump(filter[property]));
                         $(option).prop('disabled',true);
                     }else{
                         $(option).prop('disabled',false);
@@ -866,11 +964,96 @@ var indexOf = function(needle) {
     return indexOf.call(this, needle);
 };
 
-    Array.prototype.in_array = function(p_val) {
-        for(var i = 0, l = this.length; i < l; i++)	{
-            if(this[i] == p_val) {
-                return true;
-            }
+
+
+
+
+function var_dump () {
+    var output = '', pad_char = ' ', pad_val = 4, lgth = 0, i = 0, d = this.window.document;
+    var getFuncName = function (fn) {
+        var name = (/\W*function\s+([\w\$]+)\s*\(/).exec(fn);
+        if (!name) {
+            return '(Anonymous)';
         }
-        return false;
+        return name[1];
     };
+    var repeat_char = function (len, pad_char) {
+        var str = '';
+        for (var i=0; i < len; i++) {
+            str += pad_char;
+        }
+        return str;
+    };
+    var getScalarVal = function (val) {
+        var ret = '';
+        if (val === null) {
+            ret = 'NULL';
+        } else if (typeof val === 'boolean') {
+            ret = 'bool(' + val + ')';
+        } else if (typeof val === 'string') {
+            ret = 'string(' + val.length + ') "' + val + '"';
+        } else if (typeof val === 'number') {
+            if (parseFloat(val) == parseInt(val, 10)) {
+                ret = 'int(' + val + ')';
+            } else {
+                ret = 'float(' + val + ')';
+            }
+        } else if (val === undefined) {
+            ret = 'UNDEFINED'; // Not PHP behavior, but neither is undefined as value
+        }  else if (typeof val === 'function') {
+            ret = 'FUNCTION'; // Not PHP behavior, but neither is function as value
+            ret = val.toString().split("\n");
+            txt = '';
+            for(var j in ret) {
+                txt += (j !=0 ? thick_pad : '') + ret[j] + "\n";
+            }
+            ret = txt;
+        } else if (val instanceof Date) {
+            val = val.toString();
+            ret = 'string('+val.length+') "' + val + '"'
+        }
+        else if(val.nodeName) {
+            ret = 'HTMLElement("' + val.nodeName.toLowerCase() + '")';
+        }
+        return ret;
+    };
+    var formatArray = function (obj, cur_depth, pad_val, pad_char) {
+        var someProp = '';
+        if (cur_depth > 0) {
+            cur_depth++;
+        }
+        base_pad = repeat_char(pad_val * (cur_depth - 1), pad_char);
+        thick_pad = repeat_char(pad_val * (cur_depth + 1), pad_char);
+        var str = '';
+        var val = '';
+        if (typeof obj === 'object' && obj !== null) {
+            if (obj.constructor && getFuncName(obj.constructor) === 'PHPJS_Resource') {
+                return obj.var_dump();
+            }
+            lgth = 0;
+            for (someProp in obj) {
+                lgth++;
+            }
+            str += "array(" + lgth + ") {\n";
+            for (var key in obj) {
+                if (typeof obj[key] === 'object' && obj[key] !== null && !(obj[key] instanceof Date) && !obj[key].nodeName) {
+                    str += thick_pad + "["+key+"] =>\n" + thick_pad+formatArray(obj[key], cur_depth+1, pad_val, pad_char);
+                } else {
+                    val = getScalarVal(obj[key]);
+                    str += thick_pad + "["+key+"] =>\n" + thick_pad + val + "\n";
+                }
+            }
+            str += base_pad + "}\n";
+        } else {
+            str = getScalarVal(obj);
+        }
+        return str;
+    };
+    output = formatArray(arguments[0], 0, pad_val, pad_char);
+    for ( i=1; i < arguments.length; i++ ) {
+        output += '\n' + formatArray(arguments[i], 0, pad_val, pad_char);
+    }
+    return output;
+}*/
+
+

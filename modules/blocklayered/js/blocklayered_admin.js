@@ -206,14 +206,22 @@ $(document).ready(
 		if (typeof filters !== 'undefined')
 		{
 			filters = JSON.parse(filters);
-
+            var filtertmp = [];
+            var filteri = 0;
 			for (filter in filters)
 			{
 				$('#'+filter).attr("checked","checked");
 				$('#selected_filters').html(parseInt($('#selected_filters').html())+1);
 				$('select[name="'+filter+'_filter_type"]').val(filters[filter].filter_type);
 				$('select[name="'+filter+'_filter_show_limit"]').val(filters[filter].filter_show_limit);
+                var elt = document.getElementById(filter);
+                var eltli = elt.parentNode.parentNode.parentNode; /* the LI */
+                var eltul = elt.parentNode.parentNode.parentNode.parentNode; /* the UL */
+                filtertmp[filteri++] = eltul.removeChild(eltli);
 			}
+            for(var i=0; i<filteri; i++)
+            {	eltul.appendChild(filtertmp[i]);
+            }
 		}
 	}
 );

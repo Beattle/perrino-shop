@@ -1698,8 +1698,8 @@ class BlockLayered extends Module
 	{
 		$home_category = Configuration::get('PS_HOME_CATEGORY');
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', $home_category));
-/*		if ($id_parent == $home_category)
-			return;*/
+		if ($id_parent == $home_category)
+			return;
 
 		// Force attributes selection (by url '.../2-mycategory/color-blue' or by get parameter 'selected_filters')
 		if (strpos($_SERVER['SCRIPT_FILENAME'], 'blocklayered-ajax.php') === false || Tools::getValue('selected_filters') !== false)
@@ -1796,8 +1796,8 @@ class BlockLayered extends Module
 		$home_category = Configuration::get('PS_HOME_CATEGORY');
 		/* If the current category isn't defined or if it's homepage, we have nothing to display */
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', $home_category));
-		/*if ($id_parent == $home_category)
-			return false;*/
+		if ($id_parent == $home_category)
+			return false;
 
 		$alias_where = 'p';
 		if (version_compare(_PS_VERSION_,'1.5','>'))
@@ -2043,8 +2043,8 @@ class BlockLayered extends Module
 
 		$home_category = Configuration::get('PS_HOME_CATEGORY');
 		$id_parent = (int)Tools::getValue('id_category', Tools::getValue('id_category_layered', $home_category));
-/*		if ($id_parent == $home_category)
-			return;*/
+		if ($id_parent == $home_category)
+			return;
 
 		$parent = new Category((int)$id_parent, $id_lang);
 
@@ -2226,7 +2226,7 @@ class BlockLayered extends Module
 					'.(Configuration::get('PS_LAYERED_FULL_TREE') ? 'c.nleft >= '.(int)$parent->nleft.'
 					AND c.nright <= '.(int)$parent->nright : 'c.id_category = '.(int)$id_parent).'
 					AND c.active = 1)) ';
-					$sql_query['group'] = 'GROUP BY fv.id_feature_value ';
+					$sql_query['group'] = 'GROUP BY fv.id_feature_value';
 
 					if (!Configuration::get('PS_LAYERED_HIDE_0_VALUES'))
 					{
@@ -3009,7 +3009,7 @@ class BlockLayered extends Module
 
 		$selected_filters = $this->getSelectedFilters();
 		$filter_block = $this->getFilterBlock($selected_filters);
-		$this->getProducts($selected_filters, $products, $nb_products, $p, $n, $pages_nb, $start, $stop, $range);
+        $this->getProducts($selected_filters, $products, $nb_products, $p, $n, $pages_nb, $start, $stop, $range, $combinations);
 
 		// Add pagination variable
 		$nArray = (int)Configuration::get('PS_PRODUCTS_PER_PAGE') != 10 ? array((int)Configuration::get('PS_PRODUCTS_PER_PAGE'), 10, 20, 50) : array(10, 20, 50);
@@ -3066,7 +3066,8 @@ class BlockLayered extends Module
 				'static_token' => Tools::getToken(false),
 				'page_name' => 'category',
 				'nArray' => $nArray,
-				'compareProducts' => CompareProduct::getCompareProducts((int)$this->context->cookie->id_compare)
+				'compareProducts' => CompareProduct::getCompareProducts((int)$this->context->cookie->id_compare),
+                'combinations' => $combinations,
 			)
 		);
 
@@ -3093,7 +3094,8 @@ class BlockLayered extends Module
 			'current_friendly_url' => ((int)$n == (int)$nb_products) ? '#/show-all': '#'.$filter_block['current_friendly_url'],
 			'filters' => $filter_block['filters'],
 			'nbRenderedProducts' => (int)$nb_products,
-			'nbAskedProducts' => (int)$n
+			'nbAskedProducts' => (int)$n,
+            'combinations' => $combinations
 		);
 
 		if (version_compare(_PS_VERSION_, '1.6.0', '>=') === true)
@@ -3103,7 +3105,7 @@ class BlockLayered extends Module
 		return Tools::jsonEncode($vars);
 	}
 
-	public function getProducts($selected_filters, &$products, &$nb_products, &$p, &$n, &$pages_nb, &$start, &$stop, &$range)
+	public function getProducts($selected_filters, &$products, &$nb_products, &$p, &$n, &$pages_nb, &$start, &$stop, &$range, &$combinations)
 	{
 		global $cookie;
 
