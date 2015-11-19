@@ -22,7 +22,7 @@
 *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-{if isset($orderby) AND isset($orderway)}
+{*if isset($orderby) AND isset($orderway)*}
 {*<ul class="display hidden-xs">
 	<li class="display-title">{l s='View:'}</li>
     <li id="grid"><a rel="nofollow" href="#" title="{l s='Grid'}"><i class="icon-th-large"></i>{l s='Grid'}</a></li>
@@ -68,4 +68,4 @@
 	{if !isset($paginationId) || $paginationId == ''}
 		{addJsDef request=$request}
 	{/if}
-{/if}
+{*/if*}

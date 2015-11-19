@@ -63,6 +63,7 @@
 {include file="$tpl_dir./global.tpl"}
 </div>
 
+<a href="javascript:void(0)" class="back-to-top">Наверх</a>
 <!-- Traffic tracking code -->
 <script type="text/javascript">
     (function(w, p) {

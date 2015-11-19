@@ -28,6 +28,12 @@
 {if isset($category)}
 	{if $category->id AND $category->active}
 		{if isset($subcategories)}
+            <div  class="content_sortPagiBar main clearfix">
+                <div class="sortPagiBar clearfix">
+                    {include file="./product-sort.tpl"}
+                </div>
+            </div>
+            <ul {if isset($id_category) && $id_category} id="{$id_category}"{/if} class="product_list"></ul>
         {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
 		<!-- Subcategories -->
 		<div id="subcategories">
@@ -51,7 +57,6 @@
 			</ul>
 		</div>
         {/if}
-            <ul {if isset($id_category) && $id_category} id="{$id_category}"{/if} class="product_list"></ul>
 		{/if}
 		{if $products}
             <div  class="content_sortPagiBar clearfix">

@@ -191,6 +191,7 @@
 				{/foreach}
 			</div>
 			<input type="hidden" name="id_category_layered" value="{$id_category_layered}" />
+            <button id="reset-all">Сбросить всё</button>
 			{foreach from=$filters item=filter}
 				{if $filter.type_lite == 'id_attribute_group' && isset($filter.is_color_group) && $filter.is_color_group && $filter.filter_type != 2}
 					{foreach from=$filter.values key=id_value item=value}

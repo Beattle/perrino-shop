@@ -289,6 +289,21 @@ div.left_filter {
     margin-top: 5px;
 }
 
+#reset-all{
+    width: 90%;
+    color:#fff;
+    display: block;
+    height: 35px;
+    cursor: pointer;
+    background: #ae132a;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    margin: 10px 5%;
+
+}
+
 /*all*/
 .outtaHere {/*селект-скрипт убрала*/
 	position:absolute;
@@ -1108,12 +1123,23 @@ div.put {
     display: table;
 }*/
 
+.content_sortPagiBar.main{
+    visibility: hidden;
+}
+
+.content_sortPagiBar.index{
+    display: none;
+}
+
 .content_sortPagiBar{
     float: left;
     width: 50%;
     padding: 6px 0 20px;
 }
 
+.content_sortPagiBar.index{
+    float: right;
+}
 .sortPagiBar .label{
     margin-right: 19px;
 }
@@ -3291,6 +3317,22 @@ div.product_img {
     }
 }
 
+a.back-to-top {
+    background-color: #ae132a;
+    border: 1px solid #70756f;
+    border-radius: 13px;
+    bottom: 2em;
+    color: #fff;
+    display: none;
+    font-size: 1.1rem;
+    padding: 1em;
+    position: fixed;
+    right: 1em;
+    text-decoration: none;
+    z-index: 13;
+}
+
+
 /*
 .content_sortPagiBar{
     display: none;
@@ -3299,3 +3341,10 @@ div.product_img {
 body.search .content_sortPagiBar{
     display: block;
 }*/
+
+
+@media screen and (max-width: 1280px){
+    .back-to-top {
+        display: none!important;
+    }
+}

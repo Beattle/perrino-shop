@@ -49,6 +49,24 @@ $(document).ready(function()
         reloadContent(true);
     });
 
+    $('#reset-all').off('click').on('click',function(e){
+        e.preventDefault();
+        var reset = false;
+        var selects = $(this).parent().find('.layered_filter select');
+        for(var i = 0,l = selects.length;i<l;i++){
+            if($(selects[i]).val() !== "" ) reset=true;
+            var options = selects.children('option');
+            for(i = 0,l=options.length;i<l;i++){
+                if(options[i].value ===""){
+                    options[i].selected = true
+                }
+            }
+        }
+       if(reset){
+           reloadContent(true);
+       }
+    });
+
 /*	$(document).on('click', '#layered_form .select, #layered_form input[type=checkbox], #layered_form input[type=radio], .selectButton', function(e) {
 		//alert("f"); _tat_ Щелчок по селекту фильтра
 		reloadContent(true);//Добавлено, чтобы не перезагружал страницу при первом пуске фильтра
@@ -578,6 +596,11 @@ function reloadContent(params_plus)
 
 
 			$('.product_list').css('opacity', '1');
+            var $sort = $('.content_sortPagiBar');
+            if($sort.css("visibility") == "hidden" || $sort.is(':hidden')){
+                $sort.css('visibility','visible');
+                $sort.show();
+            }
 			if ($.browser.msie) // Fix bug with IE8 and aliasing
 				$('.product_list').css('filter', '');
 

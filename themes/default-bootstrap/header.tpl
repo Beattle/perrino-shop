@@ -103,6 +103,11 @@
 		 <div class="right_respons">
 		 <div class="right">
              {if $page_name =='index' && $page_name }
+                 <div  class="content_sortPagiBar index clearfix">
+                     <div class="sortPagiBar clearfix">
+                         {include file="./product-sort.tpl"}
+                     </div>
+                 </div>
                  <ul class="product_list" id="3"></ul>
              {/if}
 		 {if $page_name !='index' && $page_name !='pagenotfound'}

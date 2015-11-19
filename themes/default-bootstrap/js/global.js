@@ -241,6 +241,23 @@ var newmail = mail.replace("@", "%40");//заменили в е-mail сайта 
 	$(".alert.alert-danger").on('click', this, function(e){
 		$(this).fadeOut();
 	});
+
+    var offset = 100;
+    var duration = 500;
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > offset) {
+            console.log($(this).scrollTop());
+            jQuery('.back-to-top').fadeIn(duration);
+        } else {
+            jQuery('.back-to-top').fadeOut(duration);
+        }
+    });
+
+    jQuery('.back-to-top').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, duration);
+        return false;
+    })
 });
 
 function highdpiInit()
