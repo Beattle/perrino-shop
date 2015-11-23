@@ -45,7 +45,7 @@ $(document).ready(function()
 		reloadContent(true);
 	});*/
 
-    $('.select.form-control').change(function(){
+    $('.select.form-control').off('click').change(function(){
         reloadContent(true);
     });
 
@@ -54,14 +54,31 @@ $(document).ready(function()
         var reset = false;
         var selects = $(this).parent().find('.layered_filter select');
         for(var i = 0,l = selects.length;i<l;i++){
-            if($(selects[i]).val() !== "" ) reset=true;
-            var options = selects.children('option');
-            for(i = 0,l=options.length;i<l;i++){
-                if(options[i].value ===""){
-                    options[i].selected = true
+            var select = $(selects[i]);
+            if($(selects[i]).val() !== "" ){
+                reset=true;
+            }
+            select.off('click');
+            if(select.hasClass('selected')){
+                select.removeClass('selected');
+            }
+            var options = select.children('option');
+            for(var ii = 0,ll=options.length;ii<ll;ii++){
+                if(options[ii].value ===""){
+                    options[ii].selected = true;
                 }
+                options[ii].disabled = false;
             }
         }
+
+        if(document.body.id==='index' && reset){
+            $('.content_sortPagiBar.index').hide();
+            $('.product_list').html('');
+            $('#slider').show();
+            $('.mainkat_cont').show();
+            reset = false;
+        }
+
        if(reset){
            reloadContent(true);
        }
@@ -178,11 +195,11 @@ $(document).ready(function()
             reloadContent(true);
     });
 
-	$(document).off('change').on('change', 'select[name=n]', function(e)
+/*	$(document).off('change').on('change', 'select[name=n]', function(e)
 	{
 		$('select[name=n]').val($(this).val());
 	//	reloadContent(true);
-	});
+	});*/
 
 	paginationButton(false);
 	initLayered();
@@ -244,7 +261,7 @@ function initFilters()
 			
 			$('.layered_' + filter.type).show();
 		}
-		initUniform();
+		/*initUniform();*/
 	}
 }
 

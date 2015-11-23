@@ -246,7 +246,6 @@ var newmail = mail.replace("@", "%40");//заменили в е-mail сайта 
     var duration = 500;
     jQuery(window).scroll(function() {
         if (jQuery(this).scrollTop() > offset) {
-            console.log($(this).scrollTop());
             jQuery('.back-to-top').fadeIn(duration);
         } else {
             jQuery('.back-to-top').fadeOut(duration);
@@ -604,7 +603,7 @@ jQuery(document).ready(function($){
 var combs = '';
 var globalQuantity = 0;
 var curSelect = '';
-var combinationsFromController='';
+var combinationsFromControllerGlobal='';
 var default_eco_tax = '';
 var selectedCombination = [];
 var productBasePriceTaxExcl = '';
@@ -667,7 +666,7 @@ function getcomb(){
 
 }
 function foreachcombs(combs){
-    combinationsFromController = combs;
+    combinationsFromControllerGlobal = combs;
     combsJS = [];
     var k = 0;
     for (var i in combs)
@@ -801,7 +800,7 @@ function updatePrice() {
 
 
     var combID = curSelect.closest('li').find('.cat_cena').find('.idCombination').val();
-    var combination = combinationsFromController[combID];
+    var combination = combinationsFromControllerGlobal[combID];
 
 
 

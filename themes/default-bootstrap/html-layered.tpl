@@ -7,13 +7,15 @@
 			<div>
                 <div class="layered_filter">
                     <p>Тип пружин</p><!-- имя фильтра -->
-                    <div id="ul_layered_id_feature_9" class="col-lg-12 layered_filter_ul">
+                    <div class="col-lg-12 layered_filter_ul" id="ul_layered_id_feature_9">
+                        <!-- Блок селектов -->
                         <select class="select form-control">
-                            <option value="">Все</option>
-                            <option id="layered_id_feature_44" value="44_9">500 пружин/место</option>
-                            `				<option id="layered_id_feature_45" value="45_9">1000 пружин/место</option>
-                            <option id="layered_id_feature_46" value="46_9">2000 пружин/место</option>
-                        </select>
+                                <option value="">Все</option>
+                                <option value="44_9" id="layered_id_feature_44" style="color: ">500 пружин/место</option>
+                                <option value="45_9" id="layered_id_feature_45" style="color: ">1000 пружин/место</option>
+                                <option value="46_9" id="layered_id_feature_46" style="color: ">2000 пружин/место</option>
+                                <option value="345_9" id="layered_id_feature_345" style="color: ">беспружинный</option>
+                            </select>
                     </div>
                     <div class="clearBotch 1"></div>
                 </div>

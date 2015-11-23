@@ -24,6 +24,7 @@
 */
 
 //global variables
+
 var serialScrollNbImagesDisplayed;
 var selectedCombination = [];
 var globalQuantity = 0;
@@ -79,7 +80,6 @@ if (typeof combinationImages !== 'undefined' && combinationImages)
 
 
 if (typeof combinations !== 'undefined' && combinations)
-
 {
 	combinationsJS = [];
 	var k = 0;
@@ -393,7 +393,6 @@ function findCombination()
 	$('#attributes select, #attributes input[type=hidden], ' + radio_inputs).each(function(){
 		choice.push(parseInt($(this).val()));
 	});
-
 	if (typeof combinations == 'undefined' || !combinations)
 		combinations = [];
 	//testing every combination to find the conbination's attributes' case of the user
@@ -632,7 +631,7 @@ function updatePrice()
 	basePriceWithoutTax = basePriceWithoutTax + +combination.price;
 
 	// If a specific price redefine the combination base price
-    console.log(combination);
+
 	if (combination.specific_price && combination.specific_price.price > 0)
 	{
 		if (combination.specific_price.id_product_attribute === 0)
@@ -667,7 +666,6 @@ function updatePrice()
 		else if (combination.specific_price.reduction_type == 'percentage')
 		{
 			priceWithDiscountsWithoutTax = priceWithDiscountsWithoutTax * (1 - +combination.specific_price.reduction);
-            console.log(priceWithDiscountsWithoutTax);
 		}
 	}
 
@@ -676,8 +674,8 @@ function updatePrice()
 	// Apply Tax if necessary
 	if (noTaxForThisProduct || customerGroupWithoutTax)
 	{
-		basePriceDisplay = basePriceWithoutTax;
-		priceWithDiscountsDisplay = priceWithDiscountsWithoutTax;
+		basePriceDisplay = parseFloat(basePriceWithoutTax);
+		priceWithDiscountsDisplay = parseFloat(priceWithDiscountsWithoutTax);
 	}
 	else
 	{
