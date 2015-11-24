@@ -24,8 +24,7 @@
 */
 $(document).ready(function(){
 	resizeCatimg();
-    getcomb();
-    getcurrentcombs();
+
 });
 
 

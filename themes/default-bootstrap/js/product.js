@@ -116,18 +116,21 @@ if (typeof combinations !== 'undefined' && combinations)
 
 $(document).ready(function()
 {
-	var url_found = checkUrl();
+	 var url_found = checkUrl();
 	//init the price in relation of the selected attributes
 	if (!url_found)
 	{
-		if (typeof productHasAttributes != 'undefined' && productHasAttributes)
-			findCombination();
-		else
-			refreshProductImages(0);
+		if (typeof productHasAttributes != 'undefined' && productHasAttributes){
+           		findCombination();
+        }
+		else{
+            		refreshProductImages(0);
+        }
+
 	}
 
-	initLocationChange();
-	serialScrollSetNbImages();
+	 initLocationChange();
+	 serialScrollSetNbImages();
 
 	//init the serialScroll for thumbs
 	if (!!$.prototype.serialScroll)
@@ -248,13 +251,13 @@ $(document).on('click', '.color_pick', function(e){
 
 $(document).on('change', '.attribute_select', function(e){
 	e.preventDefault();
-	findCombination();
+	// findCombination();
 	getProductAttribute();
 });
 
 $(document).on('click', '.attribute_radio', function(e){
 	e.preventDefault();
-	findCombination();
+//	findCombination();
 	getProductAttribute();
 });
 
@@ -674,8 +677,8 @@ function updatePrice()
 	// Apply Tax if necessary
 	if (noTaxForThisProduct || customerGroupWithoutTax)
 	{
-		basePriceDisplay = parseFloat(basePriceWithoutTax);
-		priceWithDiscountsDisplay = parseFloat(priceWithDiscountsWithoutTax);
+		basePriceDisplay = basePriceWithoutTax;
+		priceWithDiscountsDisplay = priceWithDiscountsWithoutTax;
 	}
 	else
 	{
@@ -738,9 +741,9 @@ function updatePrice()
 
 	// Hide everything then show what needs to be shown
 
-/*    console.log(priceWithDiscountsDisplay);
-    console.log(basePriceDisplay);*/
 
+
+    console.log('flag');
 	$('#reduction_percent').hide();
 	$('#reduction_amount').hide();
 	$('#old_price,#old_price_display,#old_price_display_taxes').hide();
@@ -979,7 +982,7 @@ function colorPickerClick(elt)
 									});
 								});
 	$(elt).parent().parent().parent().children('.color_pick_hidden').val(id_attribute);
-	findCombination();
+//	findCombination();
 }
 
 
