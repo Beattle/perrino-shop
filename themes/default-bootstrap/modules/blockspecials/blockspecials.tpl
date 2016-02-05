@@ -82,7 +82,7 @@
                                     <div itemprop="description" class="cpec_skidka">cкидка {$specific_prices.reduction*100|floatval}%</div>
                                 {/if}
                             {/if}
-                             <div   class="cpec_cena2">
+                             <div  itemprop="offers" itemscope itemtype="http://schema.org/Offer"  class="cpec_cena2">
                                    <p itemprop="price">{$special.price|ceil}</p>рублей
                                    <meta itemprop="priceCurrency" content="RUB" />
                             </div>

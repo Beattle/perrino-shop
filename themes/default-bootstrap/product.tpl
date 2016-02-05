@@ -295,7 +295,7 @@
 			
 			<div class="product_img">
 			<!-- product img-->
-			<div id="image-block" class="product_img">
+			<div id="image-block" class="product_img {$cover.id_image}">
 				
 				{if $have_image}
 					<span id="view_full_size"><!-- Картинка большая-->	
@@ -325,14 +325,7 @@
 			<div class="product_img">
 			{if isset($images) && count($images) > 0}
 				<!-- thumbnails Картинки малые-->
-				<div id="views_block" class="clearfix {if isset($images) && count($images) < 2}hidden{/if}">
-				{if isset($images) && count($images) > 2}
-						<span class="view_scroll_spacer">
-							<a id="view_scroll_left" class="" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
-								{l s='Previous'}
-							</a>
-						</span>
-					{/if}
+				<div id="views_block" class="{if isset($images) && count($images) < 2}hidden{/if}">
 					
 					<div id="thumbs_list">
 						<ul id="thumbs_list_frame">
@@ -353,11 +346,7 @@
 						{/if}
 						</ul>
 					</div> <!-- end thumbs_list (до end views-block было убрано до linghtBox-->
-					{if isset($images) && count($images) > 2}
-						<a id="view_scroll_right" class="glyphicon glyphicon-chevron-right" title="{l s='Other views'}" href="javascript:{ldelim}{rdelim}">
-							{l s='Next'}
-						</a>
-					{/if}
+
 				</div> <!-- end views-block -->
 				<!-- end thumbnails картинки малые-->
 			{/if}
@@ -497,6 +486,7 @@
 									{if $priceDisplay >= 0 && $priceDisplay <= 2}
 										<span itemprop="lowPrice" id="our_price_display">{convertPrice price=$productPrice}</span>
                                         <meta content="{$combinations|@count}" itemprop="offerCount" />
+                                        <meta itemprop="priceCurrency" content="RUB" />
 										{hook h="displayProductPriceBlock" product=$product type="price"}
 									{/if}
 								</p>
@@ -713,7 +703,44 @@
 				
 			</div><!--product_info -->
 			<!--end Data sheet -->
-		{/if}	
+		{/if}
+        {if isset($bed_colors) && $bed_colors}
+            <div class="sel-cont">
+                <button  class="prev">&laquo;</button>
+                <button  class="next">&raquo;</button>
+
+                <div class="j-sel">
+                    <ul>
+                        {foreach from=$bed_colors key=id item=color}
+                            <li>
+                                <a data-id="{$id}" id="{$color}" class="link-to-img" href="{$smarty.const._PS_IMG_}bed_pics/{$color}.jpg">
+                                    <img height="40" width="40" title="{$color}" src="{$smarty.const._PS_IMG_}bed_pics/{$color}.jpg" />
+                                </a>
+                            </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        {/if}
+
+        {if isset($foundations) && $foundations}
+            <div id="foundations">
+                <h3>Выбор основания</h3>
+                <ul>
+                    {foreach from=$foundations key=id item=foundation}
+                        <li>
+                            <a data-price="{$foundation.price}" data-fid="{$id}" data-combid="" id="foundation-link" href='{$foundation.href}' title='{$foundation.name}'>
+                                <img alt='{$foundation.name}' src="{$foundation.img_src}" />
+                                <span class="name">{$foundation.name|truncate:50}</span>
+                            </a>
+                        </li>
+                    {/foreach}
+                </ul>
+            </div>
+        {/if}
+
+
+
 	{/if}	
 </div> <!-- Описание товара -->
 			
@@ -838,5 +865,6 @@
 {addJsDefL name=uploading_in_progress}{l s='Uploading in progress, please be patient.' js=1}{/addJsDefL}
 {addJsDefL name='product_fileDefaultHtml'}{l s='No file selected' js=1}{/addJsDefL}
 {addJsDefL name='product_fileButtonHtml'}{l s='Choose File' js=1}{/addJsDefL}
+{addJsDef foundations=$foundations}
 {/strip}
 {/if}

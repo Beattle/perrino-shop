@@ -188,8 +188,11 @@
                     <p itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer"><span itemprop="lowPrice" class="our_price_display">
 
                                     <!-- Цена со скидкой -->
-                            {if !$priceDisplay}{$product.price|ceil}{else}{convertPrice price=$product.price_tax_exc}{/if}</span>руб.</p>
+                            {if !$priceDisplay}{$product.price|ceil}{else}{convertPrice price=$product.price_tax_exc}{/if}</span>руб.
+                        <meta itemprop="priceCurrency" content="RUB" />
+                    </p>
                 {/if}
+
                 <input type="hidden" class="idCombination" value=""/>
 
             </div>

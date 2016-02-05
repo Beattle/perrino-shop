@@ -190,7 +190,7 @@
 								<span class="hide-action less">{l s='Show less' mod='blockpxplay'}</span>
 							{/if}
 						</ul>
-						<div class="clearBotch"></div>
+						<div class="clearBotch 123"></div>
 					</div>
 					{/if}
 				{/foreach}

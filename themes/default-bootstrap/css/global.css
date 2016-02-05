@@ -47,9 +47,7 @@ body {
 	display: none !important;
 }
 
-#view_scroll_right {
-	/*display: none !important;*/
-}
+
 
 div.footer_padd {
 	width: 100%;
@@ -1609,41 +1607,13 @@ div.product_img {
 /* Здесь меняла на  стили, чтобы появилась стрелка Престы листающая маленькие картинки*/
 
 #thumbs_list {
-	width: 301px;
-	margin: 0px 0px 0px 20px;
-	float: left;
-    overflow: hidden;    
+	width: 300px;
+	margin: 0 auto;
 }
 
-#view_scroll_right {
-background-image:url("../img/thumbs_right.gif");
-background-repeat: no-repeat;
-  float: left;
-  height:18px;
-  width:9px;
-  position: absolute;
-  right:-4px;
-  top:32px;
-  margin-left: 4px;
-  padding: 0 4px;
-  text-indent: -3000px;
-  display: block !important;
-   }
 
-#view_scroll_left {
-	 background-image:url("../img/thumbs_left.gif");
-	 background-repeat: no-repeat;
-  float: left;
-  height:16px;
-  width:21px;
-  position: absolute;
-  left:-3px;
-  top:32px;
-  margin-right: 4px;
-  padding: 0 4px;
-  text-indent: -3000px;
-  display: block !important;
-}
+
+
 
 /*#views_block ul{
 	width: 104%;
@@ -1651,7 +1621,6 @@ background-repeat: no-repeat;
 }*/
 
 #thumbs_list ul#thumbs_list_frame {
-    height: 90px;
     list-style-type: none;
     overflow: hidden;
     padding-left: 0;
@@ -1673,10 +1642,10 @@ background-repeat: no-repeat;
     border: 1px solid #ccc;
     box-sizing: border-box;
     cursor: pointer;
-    float: left;
+    display: inline-block;
     height: 65px;
     line-height: 0;
-    margin: 7px 12px 0px 0px;
+    margin: 7px 7px 0px 0px;
     width: 65px;
 }
 
@@ -1755,7 +1724,7 @@ background-repeat: no-repeat;
 
 div.product_info {
 	width: 330px;
-	margin: 38px 0px 30px 0px;
+	margin: 38px 0px 20px 0px;
 	float: left;
 }
 
@@ -1787,6 +1756,98 @@ div.product_info {
 	font-weight: lighter;
 	float: right;
 }
+
+.sel-cont{
+    clear: both;
+    position: relative;
+}
+
+.sel-cont button{
+    position: absolute;
+    top:0;
+    bottom:0;
+    margin: auto 0;
+    height: 20px;
+    cursor: pointer;
+    background-color:transparent;
+}
+
+.sel-cont button.disabled{
+    display: none;
+}
+
+.sel-cont .next{
+    right: 0;
+    background-image:url("../img/thumbs_right.gif");
+    background-repeat: no-repeat;
+    height:18px;
+    width:9px;
+    text-indent: -3000px;
+}
+.sel-cont .prev{
+    left: 0;
+    background-image:url("../img/thumbs_left.gif");
+    background-repeat: no-repeat;
+    height:16px;
+    width:21px;
+    text-indent: -3000px;
+}
+
+.j-sel{
+    margin: 0 auto;
+}
+
+.j-sel li a{
+    display: block;
+}
+
+.j-sel img{
+    margin: 0 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 2px;
+}
+
+.j-sel .link-to-img.selected img{
+    border:1px solid red;
+}
+.over-pics{
+    position:absolute;
+    z-index:99999;
+    box-shadow:0 0 1px #131313;
+    background:rgba(55, 55, 55, 0.2) none repeat scroll 0 0;
+    padding:10px;
+    display: none;
+}
+
+#foundations h3{
+    margin: 20px 0;
+}
+
+#foundations li{
+    display: inline-block;
+    width: 49%;
+}
+
+#foundation-link{
+    display: block;
+}
+
+#foundations li a.selected img{
+    border:1px solid red;
+}
+
+#foundations .name{
+    display: block;
+    font-size: 11px;
+}
+
+#foundations img{
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 3px;
+}
+
 
 
 div.related {

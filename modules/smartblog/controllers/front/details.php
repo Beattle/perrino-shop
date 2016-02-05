@@ -19,6 +19,7 @@ class  smartblogDetailsModuleFrontController extends smartblogModuleFrontControl
            $SmartBlogPost = new SmartBlogPost();
            $BlogCategory = new BlogCategory();
            $id_post = Tools::getValue('id_post');
+        echo '<pre>'.print_r($id_post,true).'</pre>';
            $id_lang = $this->context->language->id;
            $id_lang_defaut = Configuration::get('PS_LANG_DEFAULT');
            $post = $SmartBlogPost->getPost($id_post,$id_lang);

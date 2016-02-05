@@ -22,7 +22,8 @@ function tinySetup(config)
 		relative_urls : false,
 		convert_urls: false,
 		entity_encoding: "raw",
-		extended_valid_elements : "em[class|name|id]",
+		// extended_valid_elements : "em[class|name|id]",
+        extended_valid_elements : '*[id|class|style|title|itemscope|itemtype|itemprop|datetime|rel],div,dl,ul,dt,dd,li,span,a|rev|charset|href|lang|tabindex|accesskey|type|name|href|target|title|class|onfocus|onblur]',
 		menu: {
 			edit: {title: 'Edit', items: 'undo redo | cut copy paste | selectall'},
 			insert: {title: 'Insert', items: 'media image link | pagebreak'},

@@ -25,7 +25,7 @@
                  &nbsp;
                  <a title="{$post.totalcomment} Comments" href="{smartblog::GetSmartBlogLink('smartblog_post',$options)|escape:"html":"UTF-8"}#articleComments">{$post.totalcomment} {l s=' Comments' mod='smartblog'}</a>
              </span>{if $smartshowviewed ==1}&nbsp; <i class="icon icon-eye-open"></i>{l s=' views' mod='smartblog'} ({$post.viewed}){/if}</span>
-    <div class="articleContent">
+{*    <div class="articleContent">
           <a itemprop="url" title="{$post.meta_title}" class="imageFeaturedLink">
                     {assign var="activeimgincat" value='0'}
                     {$activeimgincat = $smartshownoimg} 
@@ -33,7 +33,7 @@
               <img itemprop="image" alt="{$post.meta_title}" src="{$modules_dir}/smartblog/images/{$post.post_img}-single-default.jpg" class="imageFeatured">
                     {/if}
           </a>
-    </div>
+    </div>*}
            <div class="sdsarticle-des">
           <span itemprop="description" class="clearfix">
 	{$post.short_description}</span>

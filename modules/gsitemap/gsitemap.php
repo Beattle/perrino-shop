@@ -769,8 +769,8 @@ class Gsitemap extends Module
 	{
 		if (!count($link_sitemap))
 			return false;
-
-		$sitemap_link = $this->context->shop->id.'_'.$lang.'_'.$index.'_sitemap.xml';
+// $this->context->shop->id.'_'.$lang.'_'.$index.
+		$sitemap_link = 'sitemap.xml';
 		$write_fd = fopen($this->normalizeDirectory(_PS_ROOT_DIR_).$sitemap_link, 'w');
 
 		fwrite($write_fd, '<?xml version="1.0" encoding="UTF-8"?>'."\r\n".'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'."\r\n");

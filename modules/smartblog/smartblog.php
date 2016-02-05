@@ -250,12 +250,13 @@ class smartblog extends Module {
                 'controller' => 'details',
                 'rule' =>       $alias.'/{id_post}_{slug}'.$html,
                 'keywords' => array(
-                    'id_post' =>    array('regexp' => '[_a-zA-Z0-9-\pL]*', 'param' => 'id_post'),
+                    'id_post' =>    array('regexp' => '[0-9-\pL]*', 'param' => 'id_post'),
                     'slug'       =>   array('regexp' => '[_a-zA-Z0-9-\pL]*'),
                 ),
                 'params' => array(
                     'fc' => 'module',
                     'module' => 'smartblog',
+
                 ),
             ),
             'smartblog_search' => array(

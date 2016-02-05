@@ -147,6 +147,11 @@ var ajaxCart = {
 		$(document).on('click', '#add_to_cart button', function(e){
 			e.preventDefault();
 			ajaxCart.add($('#product_page_product_id').val(), $('#idCombination').val(), true, null, $('#quantity_wanted').val(), null);
+            var foundation_selected = $('#foundation-link.selected');
+            if($('#foundations').length && foundation_selected.length ){
+                console.log(foundation_selected.data('fid'),foundation_selected.data('combid'),true,null,$('#quantity_wanted').val(),null);
+                    ajaxCart.add(foundation_selected.data('fid'),foundation_selected.data('combid'),true,null,$('#quantity_wanted').val(),null);
+            }
 		});
 
 		//for 'delete' buttons in the cart block...

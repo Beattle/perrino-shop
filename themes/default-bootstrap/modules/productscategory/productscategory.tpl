@@ -177,7 +177,7 @@
 				{/if}
 				</div>				
 				{if $ProdDisplayPrice && $categoryProduct.show_price == 1 && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
-					<div class="tovar_cena">
+					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="tovar_cena">
 					{if isset($categoryProduct.specific_prices) && $categoryProduct.specific_prices
 					&& ($categoryProduct.displayed_price|number_format:2 !== $categoryProduct.price_without_reduction|number_format:2)}
 						Цена: <span class="oldprice">{displayWtPrice p=$categoryProduct.price_without_reduction}</span>

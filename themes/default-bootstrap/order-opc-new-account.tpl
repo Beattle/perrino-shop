@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="required text form-group">
-                            <label for="lift">{l s='Lift'} <sup>*</sup></label>
+                            <label for="lift">Лифт <sup>*</sup></label>
                             <select name="lift" id="lift">
                                 <option {if isset($guestInformations) && isset($guestInformations.floor) && isset($guestInformations) && isset($guestInformations.floor) && $guestInformations.floor}{if $guestInformations.lift eq 'Отсутствует'}selected {/if}{/if} value="Отсутствует">Отсутствует</option>
                                 <option {if isset($guestInformations) && isset($guestInformations.floor) && isset($guestInformations) && isset($guestInformations.floor) && $guestInformations.floor}{if $guestInformations.lift eq 'Грузовой'}selected {/if}{/if} value="Грузовой">Грузовой</option>

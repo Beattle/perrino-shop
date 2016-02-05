@@ -280,7 +280,7 @@
 				<tr class="cart_total_price5">
 					<td colspan="{$col_span_subtotal}" class="total_price_container text-right">
 						<span>{l s='Total'}</span><br/> {*Итого, к оплате: - Заголовок*}
-                        <small><span>Без учёта </span><a class="del-link" href="http://perrino-shop.ru/content/1-delivery">доставки</a></small>
+                        <small><span>Без учёта </span><a class="del-link" href="http://perrino-shop.ru/content/delivery.html">доставки</a></small>
 					</td>
 					{if $use_taxes}
 						<td colspan="2" class="price" id="total_price_container">

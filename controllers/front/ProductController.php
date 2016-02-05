@@ -41,7 +41,8 @@ class ProductControllerCore extends FrontController
 		{
 			$this->addCSS(_THEME_CSS_DIR_.'product.css');
 			$this->addCSS(_THEME_CSS_DIR_.'print.css', 'print');
-			$this->addJqueryPlugin(array('fancybox', 'idTabs', 'scrollTo', 'serialScroll', 'bxslider'));
+			$this->addJqueryPlugin(array('fancybox', 'idTabs', 'scrollTo', 'serialScroll', 'bxslider','jcarousellite'));
+            $this->addJqueryUI('ui.tooltip');
 			$this->addJS(array(
 				_THEME_JS_DIR_.'tools.js',  // retro compat themes 1.5
 				_THEME_JS_DIR_.'product.js'
@@ -49,7 +50,7 @@ class ProductControllerCore extends FrontController
 		}
 		else
 		{
-			$this->addJqueryPlugin(array('scrollTo', 'serialScroll'));
+			$this->addJqueryPlugin(array('scrollTo', 'serialScroll','jcarousellite'));
 			$this->addJS(array(
 				_THEME_JS_DIR_.'tools.js',  // retro compat themes 1.5
 				_THEME_MOBILE_JS_DIR_.'product.js',
@@ -230,6 +231,7 @@ class ProductControllerCore extends FrontController
 						break;
 
 			// Assign template vars related to the category + execute hooks related to the category
+
 			$this->assignCategory();
 			// Assign template vars related to the price and tax
 			$this->assignPriceAndTax();
@@ -251,6 +253,37 @@ class ProductControllerCore extends FrontController
 				$return_link = Tools::safeOutput($this->context->link->getCategoryLink($this->category));
 			else
 				$return_link = 'javascript: history.back();';
+
+            $category_id = $this->category->id;
+            if($category_id === 13){
+                $foundations = array();
+                $foundations_ids = array(28,29,30,31);
+
+                foreach ($foundations_ids as $id){
+                    $product = new Product($id,true,$this->context->language->id);
+                    $cover = $product->getCover($id);
+                    $foundations[$id]['img_src'] = $this->context->link->getImageLink($product->link_rewrite, $cover['id_image'], 'large_default');
+                    $foundations[$id]['name'] = $product->name;
+                    $foundations[$id]['href'] = $this->context->link->getProductLink($product->id);
+                    $combListArr = $product->getAttributeCombinations($this->context->language->id);
+                    $foundations[$id]['combs'] = $combListArr;
+                    $foundations[$id]['price'] = $product->price;
+                }
+              //  echo '<pre>'.print_r($foundations,true).'</pre>';
+                $this->context->smarty->assign(array(
+                    'foundations' => $foundations
+                ));
+
+
+
+
+
+
+                // echo '<pre>'.print_r(get_class_methods($product),true).'</pre>';
+                unset($product);
+
+            }
+
 
 			$this->context->smarty->assign(array(
 				'stock_management' => Configuration::get('PS_STOCK_MANAGEMENT'),
@@ -286,7 +319,6 @@ class ProductControllerCore extends FrontController
 				'display_discount_price' => Configuration::get('PS_DISPLAY_DISCOUNT_PRICE'),
 			));
 		}
-		//print_r($this);
 		$this->setTemplate(_PS_THEME_DIR_.'product.tpl');
 	}
 
@@ -536,11 +568,29 @@ class ProductControllerCore extends FrontController
 				$combinations[$id_product_attribute]['list'] = $attribute_list;
 			}
 
+            $colorsNameArr = '';
+            if(isset($groups[10]['attributes']) && !empty($groups[10]['attributes'])){
+                $colorsNameArr = $groups[10]['attributes'];
+                if(is_array($colorsNameArr)){
+                    foreach($colorsNameArr as &$colorName){
+                        $colorName = $this->product->url_slug($colorName,
+                            array(
+                                'delimiter'     => '_',
+                                'transliterate' => true
+                            )
+                        );
+                    }
+                }
+            }
+
+
+
 			$this->context->smarty->assign(array(
 				'groups' => $groups,
 				'colors' => (count($colors)) ? $colors : false,
 				'combinations' => $combinations,
-				'combinationImages' => $combination_images
+				'combinationImages' => $combination_images,
+                'bed_colors' => $colorsNameArr
 			));
 		}
 	}

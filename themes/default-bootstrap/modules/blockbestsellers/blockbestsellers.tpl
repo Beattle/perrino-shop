@@ -59,7 +59,7 @@
                     {/if}
                 </div>
                 {if !$PS_CATALOG_MODE}
-                        <div class="tovar_cena">
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="tovar_cena">
                             Цена: 
                             {if ($product.specific_prices.reduction)!=0}                            
                             	<span class="oldprice">{$product.price_without_reduction|ceil}p</span>
