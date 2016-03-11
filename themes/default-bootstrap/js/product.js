@@ -217,7 +217,7 @@ $(document).ready(function()
         visible: 6,
         circular:false,
         speed:400,
-        scroll:2
+        scroll:1
     });
 
     var arrayOfImages = {};
@@ -715,7 +715,6 @@ function updateDisplay()
 
 function updatePrice()
 {
-    console.log('start');
 	// Get combination prices
 	var combID = $('#idCombination').val();
 	var combination = combinationsFromController[combID];
@@ -849,11 +848,8 @@ function updatePrice()
 	$('.unit-price').hide();
 
     var  fndprice = $('#foundation-link.selected').attr('data-price');
-    console.log($('#foundation-link.selected'));
     if(typeof  fndprice !=='undefined'){
-        console.log(priceWithDiscountsDisplay,parseInt(fndprice));
         priceWithDiscountsDisplay = priceWithDiscountsDisplay+parseInt(fndprice);
-        console.log(priceWithDiscountsDisplay);
     }
 
     // priceWithDiscountsDisplay +

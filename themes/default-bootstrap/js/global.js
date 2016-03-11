@@ -256,8 +256,54 @@ var newmail = mail.replace("@", "%40");//заменили в е-mail сайта 
         event.preventDefault();
         jQuery('html, body').animate({scrollTop: 0}, duration);
         return false;
-    })
+    });
+
+	var customBImg = $('.custom-block img');
+	customBImg.wrap(function(){
+		return '<a href="'+this.src+'" class="wrapper"></a>';
+	});
+
+	var  certImg = $('.cms-8 .rte img');
+	certImg.wrap(function(){
+		return '<a href="'+this.src+'" class="wrapper"></a>';
+	});
+
+	$(' .wrapper').fancybox();
+	
+
+
+    var $allVideos = $(".custom-block iframe"),
+    $fluidEl = $(".custom-block");
+	console.log($allVideos);
+
+	$allVideos.each(function() {
+
+	  $(this)
+	    // jQuery .data does not work on object/embed elements
+	    .attr('data-aspectRatio', this.height / this.width)
+	    .removeAttr('height')
+	    .removeAttr('width');
+
+	});
+
+	$(window).resize(function() {
+
+	  var newWidth = $fluidEl.width();
+	  $allVideos.each(function() {
+
+	    var $el = $(this);
+	    $el
+	        .width(newWidth)
+	        .height(newWidth * $el.attr('data-aspectRatio'));
+
+	  });
+
+	}).resize();
+	
 });
+
+
+
 
 function highdpiInit()
 {

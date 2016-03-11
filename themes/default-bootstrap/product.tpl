@@ -442,7 +442,7 @@
 				<div class="clearBotch"></div>
 				{if (isset($typeMatressTitle) && $typeMatressTitle) || (isset($typeNamatress) && $typeNamatress)}<!-- Если это матрас или наматрасник-->
 						<div class="NoStandart_product">
-							<a href="http://perrino-shop.ru/content/5-NoStandart">Нужен нестандарт?</a>						
+							<a href="http://perrino-shop.ru/content/NoStandart.html">Нужен нестандарт?</a>
 						</div>
 					{/if}
 					
@@ -697,14 +697,15 @@
 																
 														
 				{/if}	
-			{/foreach}					
-				
-						
-				
+			{/foreach}
+
+
+
 			</div><!--product_info -->
 			<!--end Data sheet -->
 		{/if}
         {if isset($bed_colors) && $bed_colors}
+
             <div class="sel-cont">
                 <button  class="prev">&laquo;</button>
                 <button  class="next">&raquo;</button>
@@ -713,8 +714,9 @@
                     <ul>
                         {foreach from=$bed_colors key=id item=color}
                             <li>
-                                <a data-id="{$id}" id="{$color}" class="link-to-img" href="{$smarty.const._PS_IMG_}bed_pics/{$color}.jpg">
-                                    <img height="40" width="40" title="{$color}" src="{$smarty.const._PS_IMG_}bed_pics/{$color}.jpg" />
+                                <a data-id="{$id}" id="{$color.slug}" class="link-to-img" href="{$smarty.const._PS_IMG_}bed_pics/{$color.slug}.jpg">
+                                    <img height="40" width="40" title="{$color.name}" src="{$smarty.const._PS_IMG_}bed_pics/{$color.slug}.jpg" />
+                                    <span class="color-name">{$color.name}</span>
                                 </a>
                             </li>
                         {/foreach}

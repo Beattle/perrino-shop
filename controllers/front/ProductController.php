@@ -571,15 +571,22 @@ class ProductControllerCore extends FrontController
             $colorsNameArr = '';
             if(isset($groups[10]['attributes']) && !empty($groups[10]['attributes'])){
                 $colorsNameArr = $groups[10]['attributes'];
+                $helpArr = array();
                 if(is_array($colorsNameArr)){
-                    foreach($colorsNameArr as &$colorName){
-                        $colorName = $this->product->url_slug($colorName,
+                    foreach($colorsNameArr as $id => &$colorName){
+                        $helpArr[$id]['name'] = $colorName;
+                        $helpArr[$id]['slug'] = $this->product->url_slug($colorName,
                             array(
                                 'delimiter'     => '_',
                                 'transliterate' => true
                             )
                         );
+
                     }
+
+                    $colorsNameArr = $helpArr;
+                    unset($helpArr);
+                  //  echo '<pre>'.print_r($colorsNameArr,true).'</pre>';
                 }
             }
 
